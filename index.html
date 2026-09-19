@@ -104,7 +104,7 @@
       align-items: start;
     }
     @media (max-width: 1200px) {
-      .board { grid-template-columns: 1fr 1fr; }
+      .board { grid-template-columns: 1fr; }
       .rank-col { grid-column: 1 / -1; }
     }
     @media (max-width: 980px) {
@@ -471,6 +471,15 @@
           </div>
           <div class="card">
             <div class="card-head">
+              <h2>Views vs posts</h2>
+              <span class="badge">Compare</span>
+            </div>
+            <div class="chart-box">
+              <canvas id="compareChart"></canvas>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-head">
               <h2>Content share</h2>
             </div>
             <div class="donut-wrap">
@@ -481,44 +490,6 @@
         </div>
 
         <!-- Middle column: edit data -->
-        <div class="stack">
-          <div class="card">
-            <div class="card-head">
-              <h2>Edit data</h2>
-              <span class="badge">Input</span>
-            </div>
-            <table class="edit">
-              <thead>
-                <tr>
-                  <th>Creator</th>
-                  <th>Views</th>
-                  <th>Posts</th>
-                  <th>Type</th>
-                  <th></th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody id="rows"></tbody>
-            </table>
-            <div class="toolbar">
-              <button type="button" class="action secondary" id="addRow">Add row</button>
-              <button type="button" class="action primary" id="sortViews">Sort views</button>
-              <button type="button" class="action secondary" id="sortPosts">Sort posts</button>
-            </div>
-            <p class="hint">Type = Affiliate (shop link) or Organic (no shop). Points = views/1k + posts×25.</p>
-          </div>
-          <div class="card">
-            <div class="card-head">
-              <h2>Views vs posts</h2>
-              <span class="badge">Compare</span>
-            </div>
-            <div class="chart-box">
-              <canvas id="compareChart"></canvas>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right column: creator ranking (separate) -->
         <div class="stack rank-col">
           <div class="card">
             <div class="card-head">
@@ -969,8 +940,11 @@
         if (tt) tt.href = tiktokHref(el.value);
       }
     };
-    document.getElementById('rows').addEventListener('input', (e) => applyRowField(e.target));
-    document.getElementById('rows').addEventListener('change', (e) => applyRowField(e.target));
+    const rowsEl = document.getElementById('rows');
+    if (rowsEl) {
+      rowsEl.addEventListener('input', (e) => applyRowField(e.target));
+      rowsEl.addEventListener('change', (e) => applyRowField(e.target));
+    }
 
     document.getElementById('rows').addEventListener('click', (e) => {
       const btn = e.target.closest('[data-del]');
@@ -980,19 +954,22 @@
       syncAll();
     });
 
-    document.getElementById('addRow').addEventListener('click', () => {
+    const addRowBtn = document.getElementById('addRow');
+    if (addRowBtn) addRowBtn.addEventListener('click', () => {
       data.push({ label: '@newcreator', views: 0, posts: 1, type: 'organic' });
       renderRows();
       syncAll();
     });
 
-    document.getElementById('sortViews').addEventListener('click', () => {
+    const sortViewsBtn = document.getElementById('sortViews');
+    if (sortViewsBtn) sortViewsBtn.addEventListener('click', () => {
       data.sort((a, b) => (Number(b.views) || 0) - (Number(a.views) || 0));
       renderRows();
       syncAll();
     });
 
-    document.getElementById('sortPosts').addEventListener('click', () => {
+    const sortPostsBtn = document.getElementById('sortPosts');
+    if (sortPostsBtn) sortPostsBtn.addEventListener('click', () => {
       data.sort((a, b) => (Number(b.posts) || 0) - (Number(a.posts) || 0));
       renderRows();
       syncAll();
@@ -1022,7 +999,7 @@
       if (url) openTikTok(url, e);
     });
 
-    renderRows();
+    if (document.getElementById('rows')) renderRows();
     syncAll();
   </script>
 </body>
