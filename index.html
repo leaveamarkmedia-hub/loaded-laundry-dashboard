@@ -941,7 +941,7 @@
       rowsEl.addEventListener('change', (e) => applyRowField(e.target));
     }
 
-    document.getElementById('rows').addEventListener('click', (e) => {
+    if (rowsEl) rowsEl.addEventListener('click', (e) => {
       const btn = e.target.closest('[data-del]');
       if (!btn) return;
       data.splice(Number(btn.dataset.del), 1);
