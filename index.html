@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loaded Laundry Analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --blue: #3b82f6;
+      --blue-deep: #2563eb;
+      --blue-soft: #dbeafe;
+      --teal: #14b8a6;
+      --teal-soft: #ccfbf1;
+      --bg: #f3f6fb;
+      --card: #ffffff;
+      --text: #1e293b;
+      --muted: #94a3b8;
+      --line: #e8eef7;
+      --shadow: 0 10px 30px rgba(37, 99, 235, 0.06);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    .app {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      min-height: 100vh;
+    }
+    .sidebar {
+      background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+      padding: 22px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      border-top-right-radius: 28px;
+      border-bottom-right-radius: 28px;
+    }
+    .avatar {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      border: 2px solid rgba(255,255,255,0.55);
+      display: grid; place-items: center;
+      color: #fff; font-weight: 700; font-size: 0.85rem;
+    }
+    .nav {
+      display: flex; flex-direction: column; gap: 10px; width: 100%; align-items: center;
+      margin-top: 8px;
+    }
+    .nav-item {
+      width: 48px; height: 48px; border-radius: 14px;
+      display: grid; place-items: center;
+      color: rgba(255,255,255,0.75);
+      background: transparent;
+      border: none; cursor: default;
+    }
+    .nav-item.active {
+      background: #fff;
+      color: var(--blue-deep);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+    }
+    .main { padding: 28px 28px 40px; }
+    .topbar {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 16px; margin-bottom: 22px; flex-wrap: wrap;
+    }
+    .topbar h1 {
+      margin: 0; font-size: 1.45rem; font-weight: 700; letter-spacing: -0.03em;
+    }
+    .topbar p { margin: 6px 0 0; color: var(--muted); font-size: 0.92rem; }
+    .period {
+      display: flex; gap: 4px; background: #fff; padding: 6px;
+      border-radius: 12px; box-shadow: var(--shadow);
+    }
+    .period button {
+      border: none; background: transparent; color: var(--muted);
+      padding: 8px 14px; border-radius: 8px; font: inherit; font-size: 0.85rem;
+      font-weight: 500; cursor: pointer;
+    }
+    .period button.active {
+      color: var(--blue-deep);
+      background: var(--blue-soft);
+    }
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .board {
+      display: grid;
+      grid-template-columns: 1.35fr 0.95fr 1.05fr;
+      gap: 16px;
+      align-items: start;
+    }
+    @media (max-width: 1200px) {
+      .board { grid-template-columns: 1fr 1fr; }
+      .rank-col { grid-column: 1 / -1; }
+    }
+    @media (max-width: 980px) {
+      .kpis { grid-template-columns: repeat(2, 1fr); }
+      .board { grid-template-columns: 1fr; }
+      .app { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+    }
+    .kpi {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow);
+    }
+    .kpi .label { color: var(--muted); font-size: 0.82rem; font-weight: 500; }
+    .kpi .value {
+      margin-top: 8px; font-size: 1.55rem; font-weight: 700;
+      letter-spacing: -0.03em; font-variant-numeric: tabular-nums;
+    }
+    .kpi .delta { margin-top: 6px; font-size: 0.8rem; font-weight: 600; color: var(--teal); }
+    .stack { display: flex; flex-direction: column; gap: 16px; }
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow);
+    }
+    .card-head {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 12px; gap: 10px;
+    }
+    .card-head h2 {
+      margin: 0; font-size: 1rem; font-weight: 700; letter-spacing: -0.02em;
+    }
+    .badge {
+      font-size: 0.72rem; font-weight: 600; color: var(--blue-deep);
+      background: var(--blue-soft); padding: 5px 10px; border-radius: 999px;
+    }
+    .badge.teal {
+      color: #0f766e;
+      background: var(--teal-soft);
+    }
+    .chart-box { position: relative; height: 240px; }
+    .chart-box.tall { height: 260px; }
+    table.edit { width: 100%; border-collapse: collapse; }
+    table.edit th, table.edit td { padding: 8px 4px; text-align: left; }
+    table.edit th {
+      color: var(--muted); font-size: 0.72rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--line);
+    }
+    table.edit td { border-bottom: 1px solid var(--line); }
+    table.edit tr:last-child td { border-bottom: none; }
+    input {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #f8fafc;
+      border-radius: 10px;
+      padding: 9px 10px;
+      font: inherit;
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+    input:focus {
+      outline: none;
+      border-color: #93c5fd;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+      background: #fff;
+    }
+    input[type="number"] { font-variant-numeric: tabular-nums; }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    button.action {
+      border: none;
+      border-radius: 10px;
+      padding: 9px 14px;
+      font: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button.primary { background: var(--blue); color: #fff; }
+    button.primary:hover { background: var(--blue-deep); }
+    button.secondary { background: var(--blue-soft); color: var(--blue-deep); }
+    button.ghost {
+      background: transparent; color: var(--muted); border: none;
+      cursor: pointer; font-size: 0.9rem; padding: 4px 8px;
+    }
+    button.ghost:hover { color: #f43f5e; }
+    .hint {
+      margin-top: 12px; color: var(--muted); font-size: 0.78rem; line-height: 1.45;
+    }
+
+    /* Ranking column — matches reference "Today's Ranking" */
+    .rank-col .card { padding: 20px 18px; }
+    .rank-sort {
+      display: flex; gap: 6px; flex-wrap: wrap;
+    }
+    .rank-sort button {
+      border: none;
+      background: #f1f5f9;
+      color: var(--muted);
+      border-radius: 8px;
+      padding: 6px 10px;
+      font: inherit;
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .rank-sort button.active {
+      background: var(--blue-soft);
+      color: var(--blue-deep);
+    }
+    .rank-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+    .rank-table thead th {
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      text-align: left;
+      padding: 8px 6px 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    .rank-table thead th.num,
+    .rank-table td.num {
+      text-align: right;
+    }
+    .rank-table tbody td {
+      padding: 12px 6px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: middle;
+      font-size: 0.85rem;
+    }
+    .rank-table tbody tr:last-child td { border-bottom: none; }
+    .rank-table tbody tr:hover { background: #f8fafc; }
+    .creator-cell {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .rank-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, #93c5fd, #60a5fa);
+      color: #fff; display: grid; place-items: center;
+      font-size: 0.7rem; font-weight: 700;
+      flex-shrink: 0;
+    }
+    .rank-avatar.hot {
+      background: linear-gradient(135deg, #5eead4, #14b8a6);
+    }
+    .rank-avatar.gold {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    }
+    .creator-name {
+      font-weight: 600;
+      font-size: 0.86rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 120px;
+    }
+    .creator-sub {
+      color: var(--muted);
+      font-size: 0.72rem;
+      margin-top: 1px;
+    }
+    .pts {
+      color: var(--teal);
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+    .muted-num {
+      color: #64748b;
+      font-variant-numeric: tabular-nums;
+      font-weight: 500;
+    }
+    .place {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.8rem;
+      width: 28px;
+    }
+
+    a.creator-link {
+      color: inherit;
+      text-decoration: none;
+      display: block;
+      cursor: pointer;
+    }
+    a.creator-link .creator-name {
+      color: var(--blue-deep);
+      pointer-events: auto;
+    }
+    .tt-url {
+      display: block;
+      margin-top: 2px;
+      font-size: 0.68rem;
+      color: #64748b;
+      word-break: break-all;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .tt-url:hover { color: var(--blue-deep); }
+    .banner-tip {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e40af;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-size: 0.82rem;
+      margin-bottom: 14px;
+      line-height: 1.45;
+    }
+    a.creator-link:hover .creator-name {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .type-badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      padding: 3px 8px;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+    .type-badge.affiliate {
+      background: #fef3c7;
+      color: #b45309;
+    }
+    .type-badge.organic {
+      background: #e0e7ff;
+      color: #4338ca;
+    }
+    select.type-select {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #f8fafc;
+      border-radius: 10px;
+      padding: 8px 10px;
+      font: inherit;
+      font-size: 0.8rem;
+      color: var(--text);
+      cursor: pointer;
+    }
+    select.type-select:focus {
+      outline: none;
+      border-color: #93c5fd;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+      background: #fff;
+    }
+    a.tt-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: var(--blue-soft);
+      color: var(--blue-deep);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    a.tt-btn:hover { background: #bfdbfe; }
+    button.tt-copy {
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 34px;
+      padding: 0 10px;
+      border-radius: 10px;
+      background: #f1f5f9;
+      color: #475569;
+      font: inherit;
+      font-size: 0.7rem;
+      font-weight: 700;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    button.tt-copy:hover { background: #e2e8f0; }
+    .tt-actions { display: flex; gap: 6px; flex-shrink: 0; }
+    tr.rank-row { cursor: pointer; }
+    tr.rank-row:hover { background: #f8fafc; }
+    .score-note {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.75rem;
+      line-height: 1.45;
+    }
+    .donut-wrap {
+      display: grid; grid-template-columns: 130px 1fr; gap: 10px; align-items: center;
+      min-height: 140px;
+    }
+    .donut-box { position: relative; height: 130px; }
+    .legend { display: flex; flex-direction: column; gap: 8px; }
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="avatar">LL</div>
+      <nav class="nav" aria-label="Sections">
+        <div class="nav-item" title="Home">⌂</div>
+        <div class="nav-item active" title="Analytics">◈</div>
+        <div class="nav-item" title="Creators">◎</div>
+        <div class="nav-item" title="Settings">⚙</div>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <h1>Loaded Laundry Analytics</h1>
+          <p>Views, content posted, and creator ranking</p>
+        </div>
+        <div class="period">
+          <button type="button">Day</button>
+          <button type="button">Week</button>
+          <button type="button" class="active">Month</button>
+          <button type="button">Year</button>
+        </div>
+      </div>
+
+            <div class="banner-tip">
+        <strong>TikTok tip:</strong> open this file in <strong>Chrome or Safari</strong> (File → Open File), not inside a chat preview.
+        TikTok often shows a <em>blank white page</em> in in-app browsers. Use <strong>Copy</strong> then paste the link into Chrome if needed.
+      </div>
+      <section class="kpis" id="kpis"></section>
+
+      <section class="board">
+        <!-- Left column: charts -->
+        <div class="stack">
+          <div class="card">
+            <div class="card-head">
+              <h2>Creator views</h2>
+              <span class="badge">Views</span>
+            </div>
+            <div class="chart-box tall">
+              <canvas id="viewsChart"></canvas>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-head">
+              <h2>Content posted</h2>
+              <span class="badge teal">Posts</span>
+            </div>
+            <div class="chart-box">
+              <canvas id="postsChart"></canvas>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-head">
+              <h2>Content share</h2>
+            </div>
+            <div class="donut-wrap">
+              <div class="donut-box"><canvas id="donut"></canvas></div>
+              <div class="legend" id="legend"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Middle column: edit data -->
+        <div class="stack">
+          <div class="card">
+            <div class="card-head">
+              <h2>Edit data</h2>
+              <span class="badge">Input</span>
+            </div>
+            <table class="edit">
+              <thead>
+                <tr>
+                  <th>Creator</th>
+                  <th>Views</th>
+                  <th>Posts</th>
+                  <th>Type</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="rows"></tbody>
+            </table>
+            <div class="toolbar">
+              <button type="button" class="action secondary" id="addRow">Add row</button>
+              <button type="button" class="action primary" id="sortViews">Sort views</button>
+              <button type="button" class="action secondary" id="sortPosts">Sort posts</button>
+            </div>
+            <p class="hint">Type = Affiliate (shop link) or Organic (no shop). Points = views/1k + posts×25.</p>
+          </div>
+          <div class="card">
+            <div class="card-head">
+              <h2>Views vs posts</h2>
+              <span class="badge">Compare</span>
+            </div>
+            <div class="chart-box">
+              <canvas id="compareChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right column: creator ranking (separate) -->
+        <div class="stack rank-col">
+          <div class="card">
+            <div class="card-head">
+              <h2>Creator ranking</h2>
+              <div class="rank-sort" id="rankSort">
+                <button type="button" data-sort="points" class="active">Points</button>
+                <button type="button" data-sort="views">Views</button>
+                <button type="button" data-sort="posts">Posts</button>
+              </div>
+            </div>
+            <table class="rank-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Creator</th>
+                  <th>Type</th>
+                  <th class="num">Points</th>
+                  <th class="num">Views</th>
+                  <th class="num">Posts</th>
+                </tr>
+              </thead>
+              <tbody id="rankingBody"></tbody>
+            </table>
+            <p class="score-note" id="scoreNote">
+              Affiliate = posts with a shop link. Organic = no shop link. Click a name for TikTok. Points = views÷1k + posts×25.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const initial = [
+      { label: '@claireelise919', views: 0, posts: 1, type: 'organic' },
+      { label: '@mckenziemcmahonn', views: 0, posts: 0, type: 'organic' },
+      { label: '@amberjordannn', views: 0, posts: 0, type: 'organic' },
+      { label: '@lilylonka', views: 0, posts: 1, type: 'organic' },
+      { label: '@kelllypadua', views: 0, posts: 1, type: 'organic' },
+      { label: '@paytonstrait', views: 0, posts: 1, type: 'organic' },
+      { label: '@mackenzieballou', views: 0, posts: 1, type: 'organic' },
+      { label: '@briannamorais_', views: 0, posts: 1, type: 'organic' },
+    ];
+    let data = initial.map((d) => ({ ...d }));
+    let rankMode = 'points';
+
+    const fmt = (n) => {
+      n = Number(n) || 0;
+      if (n >= 1000000) return (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+      if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
+      return String(Math.round(n));
+    };
+    const fmtFull = (n) => Number(n || 0).toLocaleString();
+    const pointsOf = (d) => {
+      const views = Number(d.views) || 0;
+      const posts = Number(d.posts) || 0;
+      return Math.round(views / 1000 + posts * 25);
+    };
+    const tiktokHref = (label) => {
+      let handle = String(label || '').trim();
+      handle = handle.replace(/^https?:\/\/(www\.)?tiktok\.com\/@/i, '');
+      handle = handle.replace(/^@+/, '').split(/[/?#\s]/)[0];
+      if (!handle) return '';
+      return 'https://www.tiktok.com/@' + handle;
+    };
+    const openTikTok = (label, ev) => {
+      if (ev) ev.preventDefault();
+      const url = typeof label === 'string' && label.startsWith('http') ? label : tiktokHref(label);
+      if (!url) return false;
+      const a = document.createElement('a');
+      a.href = url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      return false;
+    };
+    const copyTikTok = async (label, ev) => {
+      if (ev) { ev.preventDefault(); ev.stopPropagation(); }
+      const url = typeof label === 'string' && label.startsWith('http') ? label : tiktokHref(label);
+      if (!url) return;
+      try {
+        await navigator.clipboard.writeText(url);
+        if (ev && ev.currentTarget) {
+          const btn = ev.currentTarget;
+          const prev = btn.textContent;
+          btn.textContent = 'Copied';
+          setTimeout(() => { btn.textContent = prev; }, 1200);
+        }
+      } catch (err) {
+        prompt('Copy this TikTok link:', url);
+      }
+    };
+
+
+    const softTooltip = {
+      backgroundColor: '#fff',
+      titleColor: '#1e293b',
+      bodyColor: '#1e293b',
+      borderColor: '#e8eef7',
+      borderWidth: 1,
+      padding: 12,
+      titleFont: { weight: '600', family: 'Inter' },
+      bodyFont: { family: 'Inter' },
+    };
+
+    const viewsChart = new Chart(document.getElementById('viewsChart'), {
+      type: 'line',
+      data: {
+        labels: [],
+        datasets: [{
+          label: 'Views',
+          data: [],
+          borderColor: '#3b82f6',
+          backgroundColor: (ctx) => {
+            const g = ctx.chart.ctx.createLinearGradient(0, 0, 0, 260);
+            g.addColorStop(0, 'rgba(59,130,246,0.35)');
+            g.addColorStop(1, 'rgba(59,130,246,0.02)');
+            return g;
+          },
+          borderWidth: 3,
+          pointRadius: 0,
+          pointHoverRadius: 6,
+          pointBackgroundColor: '#fff',
+          pointBorderColor: '#3b82f6',
+          pointBorderWidth: 3,
+          fill: true,
+          tension: 0.4,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            ...softTooltip,
+            displayColors: false,
+            callbacks: { label: (c) => fmtFull(c.raw) + ' views' },
+          },
+        },
+        scales: {
+          x: {
+            ticks: { color: '#94a3b8', font: { size: 10, family: 'Inter' } },
+            grid: { display: false },
+            border: { display: false },
+          },
+          y: {
+            beginAtZero: true,
+            ticks: {
+              color: '#94a3b8',
+              font: { size: 11, family: 'Inter' },
+              callback: (v) => fmt(v),
+            },
+            grid: { color: '#eef2f7', drawBorder: false },
+            border: { display: false },
+          },
+        },
+      },
+    });
+
+    const postsChart = new Chart(document.getElementById('postsChart'), {
+      type: 'bar',
+      data: {
+        labels: [],
+        datasets: [{
+          label: 'Posts',
+          data: [],
+          backgroundColor: [],
+          borderRadius: { topLeft: 8, topRight: 8, bottomLeft: 0, bottomRight: 0 },
+          borderSkipped: false,
+          maxBarThickness: 36,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            ...softTooltip,
+            displayColors: false,
+            callbacks: { label: (c) => c.raw + ' posts' },
+          },
+        },
+        scales: {
+          x: {
+            ticks: { color: '#94a3b8', font: { size: 10, family: 'Inter' }, maxRotation: 35 },
+            grid: { display: false },
+            border: { display: false },
+          },
+          y: {
+            beginAtZero: true,
+            ticks: {
+              color: '#94a3b8',
+              font: { size: 11, family: 'Inter' },
+              stepSize: 1,
+              precision: 0,
+            },
+            grid: { color: '#eef2f7', drawBorder: false },
+            border: { display: false },
+          },
+        },
+      },
+    });
+
+    const compareChart = new Chart(document.getElementById('compareChart'), {
+      type: 'bar',
+      data: {
+        labels: [],
+        datasets: [
+          {
+            label: 'Views (scaled)',
+            data: [],
+            backgroundColor: '#3b82f6',
+            borderRadius: 6,
+            maxBarThickness: 16,
+          },
+          {
+            label: 'Posts',
+            data: [],
+            backgroundColor: '#14b8a6',
+            borderRadius: 6,
+            maxBarThickness: 16,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              boxWidth: 10,
+              usePointStyle: true,
+              pointStyle: 'circle',
+              color: '#64748b',
+              font: { family: 'Inter', size: 11 },
+            },
+          },
+          tooltip: {
+            ...softTooltip,
+            callbacks: {
+              label: (c) => {
+                if (c.dataset.label.startsWith('Views')) {
+                  const raw = (c.chart._rawViews && c.chart._rawViews[c.dataIndex]) || 0;
+                  return ' Views: ' + fmtFull(raw);
+                }
+                return ' Posts: ' + c.raw;
+              },
+            },
+          },
+        },
+        scales: {
+          x: {
+            ticks: { color: '#94a3b8', font: { size: 9, family: 'Inter' }, maxRotation: 35 },
+            grid: { display: false },
+            border: { display: false },
+          },
+          y: {
+            beginAtZero: true,
+            ticks: { color: '#94a3b8', font: { size: 11, family: 'Inter' } },
+            grid: { color: '#eef2f7', drawBorder: false },
+            border: { display: false },
+          },
+        },
+      },
+    });
+
+    const donut = new Chart(document.getElementById('donut'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Multi-post', 'Single-post'],
+        datasets: [{
+          data: [1, 1],
+          backgroundColor: ['#14b8a6', '#3b82f6'],
+          borderWidth: 0,
+          hoverOffset: 4,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '72%',
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            ...softTooltip,
+            callbacks: { label: (c) => ' ' + c.raw + ' creators' },
+          },
+        },
+      },
+    });
+
+    function rankedList() {
+      const list = data.map((d) => ({
+        ...d,
+        points: pointsOf(d),
+        views: Number(d.views) || 0,
+        posts: Number(d.posts) || 0,
+      }));
+      list.sort((a, b) => {
+        if (rankMode === 'views') return b.views - a.views || b.points - a.points;
+        if (rankMode === 'posts') return b.posts - a.posts || b.views - a.views;
+        return b.points - a.points || b.views - a.views;
+      });
+      return list;
+    }
+
+    function syncAll() {
+      const views = data.map((d) => Number(d.views) || 0);
+      const posts = data.map((d) => Number(d.posts) || 0);
+      const totalViews = views.reduce((a, b) => a + b, 0);
+      const totalPosts = posts.reduce((a, b) => a + b, 0);
+      const multi = data.filter((d) => (Number(d.posts) || 0) >= 2).length;
+      const single = data.length - multi;
+      const ranked = rankedList();
+      const leader = ranked[0];
+      const maxViews = Math.max(...views, 1);
+      const maxPosts = Math.max(...posts, 1);
+      const scaledViews = views.map((v) => +(v / maxViews * maxPosts).toFixed(2));
+
+      const affiliates = data.filter((d) => (d.type || 'organic') === 'affiliate').length;
+      const organics = data.length - affiliates;
+      document.getElementById('kpis').innerHTML = `
+        <div class="kpi"><div class="label">Creators</div><div class="value">${data.length}</div><div class="delta">${affiliates} affiliate · ${organics} organic</div></div>
+        <div class="kpi"><div class="label">Total views</div><div class="value">${fmt(totalViews)}</div><div class="delta">${fmtFull(totalViews)}</div></div>
+        <div class="kpi"><div class="label">Content posted</div><div class="value">${totalPosts}</div><div class="delta">posts for you</div></div>
+        <div class="kpi"><div class="label">#1 ranked</div><div class="value">${leader ? leader.points : 0}</div><div class="delta">${leader ? leader.label + ' pts' : '—'}</div></div>
+      `;
+
+      viewsChart.data.labels = data.map((d) => d.label || '');
+      viewsChart.data.datasets[0].data = views;
+      viewsChart.update();
+
+      postsChart.data.labels = data.map((d) => d.label || '');
+      postsChart.data.datasets[0].data = posts;
+      postsChart.data.datasets[0].backgroundColor = posts.map((v) => (v >= 3 ? '#14b8a6' : '#93c5fd'));
+      postsChart.update();
+
+      compareChart.data.labels = data.map((d) => d.label || '');
+      compareChart.data.datasets[0].data = scaledViews;
+      compareChart.data.datasets[1].data = posts;
+      compareChart._rawViews = views;
+      compareChart.update();
+
+      donut.data.datasets[0].data = [multi, single];
+      donut.update();
+
+      const multiShare = data.length ? Math.round((multi / data.length) * 100) : 0;
+      document.getElementById('legend').innerHTML = `
+        <div class="legend-item"><span class="dot" style="background:#14b8a6"></span>2+ posts · ${multi}</div>
+        <div class="legend-item"><span class="dot" style="background:#3b82f6"></span>1 post · ${single}</div>
+        <div class="legend-item" style="color:#94a3b8;font-size:0.75rem">${multiShare}% multi-post · ${totalPosts} total</div>
+      `;
+
+      document.getElementById('rankingBody').innerHTML = ranked.map((d, i) => {
+        const initials = (d.label || '?').replace('@', '').slice(0, 2).toUpperCase();
+        let avClass = 'rank-avatar';
+        if (i === 0) avClass += ' gold';
+        else if (d.posts >= 3) avClass += ' hot';
+        const href = tiktokHref(d.label);
+        const typ = (d.type || 'organic') === 'affiliate' ? 'affiliate' : 'organic';
+        const safe = href.replaceAll('&', '&amp;').replaceAll('"', '&quot;');
+        return `<tr class="rank-row" data-tt="${safe}" title="Open on TikTok">
+          <td class="place">${i + 1}</td>
+          <td>
+            <div class="creator-cell">
+              <div class="${avClass}">${initials}</div>
+              <div style="min-width:0;flex:1">
+                <a class="creator-link" href="${safe}" target="_blank" rel="noopener noreferrer"
+                   onclick="return openTikTok('${safe}', event)">
+                  <div class="creator-name">${d.label || '—'}</div>
+                </a>
+                <a class="tt-url" href="${safe}" target="_blank" rel="noopener noreferrer"
+                   onclick="return openTikTok('${safe}', event)">${href}</a>
+                <div class="creator-sub">${typ === 'affiliate' ? 'Shop link' : 'No shop link'}</div>
+              </div>
+              <div class="tt-actions">
+                <a class="tt-btn" href="${safe}" target="_blank" rel="noopener noreferrer"
+                   onclick="return openTikTok('${safe}', event)" title="Open TikTok">TT</a>
+                <button type="button" class="tt-copy" onclick="copyTikTok('${safe}', event)">Copy</button>
+              </div>
+            </div>
+          </td>
+          <td><span class="type-badge ${typ}">${typ === 'affiliate' ? 'Affiliate' : 'Organic'}</span></td>
+          <td class="num pts">${d.points}</td>
+          <td class="num muted-num">${fmt(d.views)}</td>
+          <td class="num muted-num">${d.posts}</td>
+        </tr>`;
+      }).join('');
+    }
+
+    function renderRows() {
+      const tbody = document.getElementById('rows');
+      tbody.innerHTML = '';
+      data.forEach((row, i) => {
+        const tr = document.createElement('tr');
+        const href = tiktokHref(row.label);
+        const typ = (row.type || 'organic') === 'affiliate' ? 'affiliate' : 'organic';
+        const safe = href.replaceAll('&', '&amp;').replaceAll('"', '&quot;');
+        tr.innerHTML = `
+          <td><input data-i="${i}" data-k="label" value="${String(row.label).replaceAll('"', '&quot;')}" /></td>
+          <td><input data-i="${i}" data-k="views" type="number" min="0" step="1" value="${row.views}" /></td>
+          <td><input data-i="${i}" data-k="posts" type="number" min="0" step="1" value="${row.posts}" /></td>
+          <td>
+            <select class="type-select" data-i="${i}" data-k="type">
+              <option value="affiliate" ${typ === 'affiliate' ? 'selected' : ''}>Affiliate</option>
+              <option value="organic" ${typ === 'organic' ? 'selected' : ''}>Organic</option>
+            </select>
+          </td>
+          <td style="width:auto">
+            <div class="tt-actions">
+              <a class="tt-btn" href="${safe}" target="_blank" rel="noopener noreferrer"
+                 onclick="return openTikTok('${safe}', event)" title="Open TikTok">TT</a>
+              <button type="button" class="tt-copy" onclick="copyTikTok('${safe}', event)">Copy</button>
+            </div>
+          </td>
+          <td style="width:36px"><button type="button" class="ghost" data-del="${i}">✕</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    const applyRowField = (el) => {
+      if (!el.dataset.i) return;
+      const i = Number(el.dataset.i);
+      const k = el.dataset.k;
+      data[i][k] = (k === 'views' || k === 'posts') ? Number(el.value) : el.value;
+      syncAll();
+      // Re-render edit rows only when type changes (keeps TT links in sync without killing typing)
+      if (k === 'type') renderRows();
+      if (k === 'label') {
+        const tt = el.closest('tr') && el.closest('tr').querySelector('a.tt-btn');
+        if (tt) tt.href = tiktokHref(el.value);
+      }
+    };
+    document.getElementById('rows').addEventListener('input', (e) => applyRowField(e.target));
+    document.getElementById('rows').addEventListener('change', (e) => applyRowField(e.target));
+
+    document.getElementById('rows').addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-del]');
+      if (!btn) return;
+      data.splice(Number(btn.dataset.del), 1);
+      renderRows();
+      syncAll();
+    });
+
+    document.getElementById('addRow').addEventListener('click', () => {
+      data.push({ label: '@newcreator', views: 0, posts: 1, type: 'organic' });
+      renderRows();
+      syncAll();
+    });
+
+    document.getElementById('sortViews').addEventListener('click', () => {
+      data.sort((a, b) => (Number(b.views) || 0) - (Number(a.views) || 0));
+      renderRows();
+      syncAll();
+    });
+
+    document.getElementById('sortPosts').addEventListener('click', () => {
+      data.sort((a, b) => (Number(b.posts) || 0) - (Number(a.posts) || 0));
+      renderRows();
+      syncAll();
+    });
+
+    document.getElementById('rankSort').addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-sort]');
+      if (!btn) return;
+      rankMode = btn.dataset.sort;
+      document.querySelectorAll('#rankSort button').forEach((b) => b.classList.toggle('active', b === btn));
+      syncAll();
+    });
+
+    document.querySelectorAll('.period button').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.period button').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+
+    document.getElementById('rankingBody').addEventListener('click', (e) => {
+      if (e.target.closest('a, button')) return;
+      const tr = e.target.closest('tr.rank-row');
+      if (!tr) return;
+      const url = tr.getAttribute('data-tt');
+      if (url) openTikTok(url, e);
+    });
+
+    renderRows();
+    syncAll();
+  </script>
+</body>
+</html>
