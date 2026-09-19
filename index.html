@@ -509,7 +509,7 @@
               <tbody id="rankingBody"></tbody>
             </table>
             <p class="score-note" id="scoreNote">
-              Affiliate = posts with a shop link. Organic = no shop link. Click a name for TikTok. Points = views÷1k + posts×25.
+              Affiliate = shop link. Organic = no shop. Some creators tracked without @ tag (bottle/mention). Points = views÷1k + posts×25.
             </p>
           </div>
         </div>
@@ -519,24 +519,25 @@
 
   <script>
     const initial = [
-      { label: "@alliebock", views: 291800, posts: 1, type: "organic" },
-      { label: "@kelseyterry", views: 66359, posts: 3, type: "affiliate" },
-      { label: "@kelseylwashburn", views: 64944, posts: 5, type: "affiliate" },
-      { label: "@be.gabriela", views: 6096, posts: 1, type: "organic" },
-      { label: "@scentsavvyryan", views: 5499, posts: 1, type: "organic" },
-      { label: "@heyitsdrock", views: 5211, posts: 1, type: "organic" },
-      { label: "@ellie..homola", views: 3802, posts: 1, type: "organic" },
-      { label: "@speedqueenmamma", views: 2952, posts: 1, type: "organic" },
-      { label: "@dumpdeals", views: 1711, posts: 1, type: "organic" },
-      { label: "@graceeharmer", views: 1570, posts: 1, type: "organic" },
-      { label: "@briannamorais_", views: 0, posts: 1, type: "organic" },
-      { label: "@claireelise919", views: 0, posts: 1, type: "organic" },
-      { label: "@kelllypadua", views: 0, posts: 1, type: "organic" },
-      { label: "@lilylonka", views: 0, posts: 1, type: "organic" },
-      { label: "@mackenzieballou", views: 0, posts: 1, type: "organic" },
-      { label: "@paytonstrait", views: 0, posts: 1, type: "organic" },
-      { label: "@amberjordannn", views: 0, posts: 0, type: "organic" },
-      { label: "@mckenziemcmahonn", views: 0, posts: 0, type: "organic" },
+      { label: "@alliebock", views: 291800, posts: 1, type: "organic", noTag: false },
+      { label: "@kelseyterry", views: 66359, posts: 3, type: "affiliate", noTag: false },
+      { label: "@kelseylwashburn", views: 64944, posts: 5, type: "affiliate", noTag: false },
+      { label: "@be.gabriela", views: 6096, posts: 1, type: "organic", noTag: false },
+      { label: "@scentsavvyryan", views: 5499, posts: 1, type: "organic", noTag: false },
+      { label: "@heyitsdrock", views: 5211, posts: 1, type: "organic", noTag: false },
+      { label: "@ellie..homola", views: 3802, posts: 1, type: "organic", noTag: false },
+      { label: "@speedqueenmamma", views: 2952, posts: 1, type: "organic", noTag: false },
+      { label: "@dumpdeals", views: 1711, posts: 1, type: "organic", noTag: false },
+      { label: "@graceeharmer", views: 1570, posts: 1, type: "organic", noTag: false },
+      { label: "@briannamorais_", views: 0, posts: 1, type: "organic", noTag: false },
+      { label: "@claireelise919", views: 0, posts: 1, type: "organic", noTag: false },
+      { label: "@kelllypadua", views: 0, posts: 1, type: "organic", noTag: false },
+      { label: "@lilylonka", views: 0, posts: 1, type: "organic", noTag: false },
+      { label: "@mackenzieballou", views: 0, posts: 1, type: "organic", noTag: false },
+      { label: "@paytonstrait", views: 0, posts: 1, type: "organic", noTag: false },
+      { label: "@amberjordannn", views: 0, posts: 0, type: "organic", noTag: false },
+      { label: "@mckenziemcmahonn", views: 0, posts: 0, type: "organic", noTag: false },
+      { label: "@mrkecom", views: 0, posts: 0, type: "organic", noTag: true },
     ];
     let data = initial.map((d) => ({ ...d }));
     let rankMode = 'points';
@@ -874,7 +875,7 @@
                 </a>
                 <a class="tt-url" href="${safe}" target="_blank" rel="noopener noreferrer"
                    onclick="return openTikTok('${safe}', event)">${href}</a>
-                <div class="creator-sub">${typ === 'affiliate' ? 'Shop link' : 'No shop link'}</div>
+                <div class="creator-sub">${typ === 'affiliate' ? 'Shop link' : 'No shop link'}${d.noTag ? ' · no-tag track' : ''}</div>
               </div>
               <div class="tt-actions">
                 <a class="tt-btn" href="${safe}" target="_blank" rel="noopener noreferrer"
