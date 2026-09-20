@@ -568,7 +568,7 @@
               <tbody id="rankingBody"></tbody>
             </table>
             <p class="score-note" id="scoreNote">
-              NEW = found in last check. Last post = when we last logged a Loaded video. Points = views÷1k + posts×25.
+              NEW = found in last check. Last post = real TikTok post date. Points = views÷1k + posts×25.
             </p>
           </div>
         </div>
@@ -579,28 +579,28 @@
   <script>
     const initial = [
       { label: "@alliebock", views: 291800, posts: 1, type: "organic", noTag: false, lastPost: null, latestVideo: null, isNew: false },
-      { label: "@kelseyterry", views: 76423, posts: 5, type: "affiliate", noTag: false, lastPost: "2026-09-19", latestVideo: "https://www.tiktok.com/@kelseyterry/video/7683716896545393950", isNew: true },
-      { label: "@kelseylwashburn", views: 123146, posts: 9, type: "affiliate", noTag: false, lastPost: "2026-09-19", latestVideo: "https://www.tiktok.com/@kelseylwashburn/video/7684079533372214558", isNew: true },
-      { label: "@be.gabriela", views: 12204, posts: 2, type: "organic", noTag: false, lastPost: "2026-09-19", latestVideo: "https://www.tiktok.com/@be.gabriela/video/7685596037750344974", isNew: true },
+      { label: "@kelseyterry", views: 76423, posts: 5, type: "affiliate", noTag: false, lastPost: "2026-09-14", latestVideo: "https://www.tiktok.com/@kelseyterry/video/7685510412636474654", isNew: true },
+      { label: "@kelseylwashburn", views: 123146, posts: 9, type: "affiliate", noTag: false, lastPost: "2026-09-16", latestVideo: "https://www.tiktok.com/@kelseylwashburn/video/7686309544833666334", isNew: true },
+      { label: "@be.gabriela", views: 12204, posts: 2, type: "organic", noTag: false, lastPost: "2026-09-14", latestVideo: "https://www.tiktok.com/@be.gabriela/video/7685596037750344974", isNew: true },
       { label: "@scentsavvyryan", views: 5499, posts: 1, type: "organic", noTag: false, lastPost: null, latestVideo: null, isNew: false },
       { label: "@heyitsdrock", views: 5211, posts: 1, type: "organic", noTag: false, lastPost: null, latestVideo: null, isNew: false },
       { label: "@ellie..homola", views: 3802, posts: 1, type: "organic", noTag: false, lastPost: null, latestVideo: null, isNew: false },
       { label: "@speedqueenmamma", views: 2952, posts: 1, type: "organic", noTag: false, lastPost: null, latestVideo: null, isNew: false },
       { label: "@dumpdeals", views: 1711, posts: 1, type: "organic", noTag: false, lastPost: null, latestVideo: null, isNew: false },
       { label: "@graceeharmer", views: 1570, posts: 1, type: "organic", noTag: false, lastPost: null, latestVideo: null, isNew: false },
-      { label: "@briannamorais_", views: 0, posts: 1, type: "organic", noTag: false, lastPost: "2026-09-19", latestVideo: "https://www.tiktok.com/@briannamorais_/video/7685921073556213005", isNew: false },
+      { label: "@briannamorais_", views: 0, posts: 1, type: "organic", noTag: false, lastPost: "2026-09-15", latestVideo: "https://www.tiktok.com/@briannamorais_/video/7685921073556213005", isNew: false },
       { label: "@claireelise919", views: 0, posts: 1, type: "organic", noTag: false, lastPost: "2026-09-19", latestVideo: "https://www.tiktok.com/@claireelise919/video/7687306015347428622", isNew: false },
-      { label: "@kelllypadua", views: 727, posts: 2, type: "organic", noTag: false, lastPost: "2026-09-19", latestVideo: "https://www.tiktok.com/@kelllypadua/video/7682573556831505694", isNew: true },
-      { label: "@lilylonka", views: 0, posts: 1, type: "organic", noTag: false, lastPost: "2026-09-19", latestVideo: "https://www.tiktok.com/@lilylonka/video/7686875897546296607", isNew: false },
-      { label: "@mackenzieballou", views: 1745, posts: 2, type: "organic", noTag: false, lastPost: "2026-09-19", latestVideo: "https://www.tiktok.com/@mackenzieballou/video/7682920326820302111", isNew: true },
-      { label: "@paytonstrait", views: 0, posts: 1, type: "organic", noTag: false, lastPost: "2026-09-19", latestVideo: "https://www.tiktok.com/@paytonstrait/video/7686300377863441694", isNew: false },
-      { label: "@amberjordannn", views: 12800, posts: 1, type: "organic", noTag: false, lastPost: "2026-09-19", latestVideo: "https://www.tiktok.com/@amberjordannn/video/7687006443144351006", isNew: true },
-      { label: "@mckenziemcmahonn", views: 615, posts: 1, type: "organic", noTag: false, lastPost: "2026-09-19", latestVideo: "https://www.tiktok.com/@mckenziemcmahonn/video/7684463555491548430", isNew: true },
+      { label: "@kelllypadua", views: 727, posts: 2, type: "organic", noTag: false, lastPost: "2026-09-17", latestVideo: "https://www.tiktok.com/@kelllypadua/video/7686675001474338078", isNew: true },
+      { label: "@lilylonka", views: 0, posts: 1, type: "organic", noTag: false, lastPost: "2026-09-18", latestVideo: "https://www.tiktok.com/@lilylonka/video/7686875897546296607", isNew: false },
+      { label: "@mackenzieballou", views: 1745, posts: 2, type: "organic", noTag: false, lastPost: "2026-09-16", latestVideo: "https://www.tiktok.com/@mackenzieballou/video/7686284169504148767", isNew: true },
+      { label: "@paytonstrait", views: 0, posts: 1, type: "organic", noTag: false, lastPost: "2026-09-16", latestVideo: "https://www.tiktok.com/@paytonstrait/video/7686300377863441694", isNew: false },
+      { label: "@amberjordannn", views: 12800, posts: 1, type: "organic", noTag: false, lastPost: "2026-09-18", latestVideo: "https://www.tiktok.com/@amberjordannn/video/7687006443144351006", isNew: true },
+      { label: "@mckenziemcmahonn", views: 615, posts: 1, type: "organic", noTag: false, lastPost: "2026-09-11", latestVideo: "https://www.tiktok.com/@mckenziemcmahonn/video/7684463555491548430", isNew: true },
       { label: "@mrkecom", views: 0, posts: 0, type: "organic", noTag: true, lastPost: null, latestVideo: null, isNew: false },
     ];
 
     const weekLabels = ["Sun 09/13", "Mon 09/14", "Tue 09/15", "Wed 09/16", "Thu 09/17", "Fri 09/18", "Sat 09/19"];
-    const weekCounts = [0, 0, 0, 0, 0, 0, 17];
+    const weekCounts = [0, 3, 1, 3, 1, 2, 1];
     const lastCheck = {"at": "2026-09-19T17:17:35-07:00", "label": "Sep 19, 5:17pm PT"};
     const newSinceCheck = 11;
     let data = initial.map((d) => ({ ...d }));
