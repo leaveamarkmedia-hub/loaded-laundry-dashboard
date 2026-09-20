@@ -78,6 +78,43 @@
       margin: 0; font-size: 1.45rem; font-weight: 700; letter-spacing: -0.03em;
     }
     .topbar p { margin: 6px 0 0; color: var(--muted); font-size: 0.92rem; }
+
+    .badge-new {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #fecaca;
+      color: #b91c1c;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    tr.rank-row.is-new {
+      background: #fff7ed;
+    }
+    tr.rank-row.is-new:hover { background: #ffedd5; }
+    .last-post {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    .last-post.stale { color: #f43f5e; }
+    .last-post.fresh { color: var(--teal); font-weight: 600; }
+    .check-banner {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-size: 0.82rem;
+      margin-bottom: 14px;
+      line-height: 1.45;
+    }
+
     .period {
       display: flex; gap: 4px; background: #fff; padding: 6px;
       border-radius: 12px; box-shadow: var(--shadow);
@@ -441,6 +478,7 @@
           <button type="button">Year</button>
         </div>
       </div>
+            <div class="check-banner" id="checkBanner"></div>
       <section class="kpis" id="kpis"></section>
 
       <section class="board">
@@ -453,6 +491,16 @@
             </div>
             <div class="chart-box tall">
               <canvas id="viewsChart"></canvas>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <h2>Loaded posts this week</h2>
+              <span class="badge teal">Momentum</span>
+            </div>
+            <div class="chart-box">
+              <canvas id="weekChart"></canvas>
             </div>
           </div>
           <div class="card">
@@ -501,6 +549,7 @@
                   <th>#</th>
                   <th>Creator</th>
                   <th>Type</th>
+                  <th>Last post</th>
                   <th class="num">Points</th>
                   <th class="num">Views</th>
                   <th class="num">Posts</th>
@@ -509,7 +558,7 @@
               <tbody id="rankingBody"></tbody>
             </table>
             <p class="score-note" id="scoreNote">
-              Affiliate = shop link. Organic = no shop. Some creators tracked without @ tag (bottle/mention). Points = views÷1k + posts×25.
+              NEW = found in last check. Last post = when we last logged a Loaded video. Points = views÷1k + posts×25.
             </p>
           </div>
         </div>
@@ -519,26 +568,31 @@
 
   <script>
     const initial = [
-      { label: "@alliebock", views: 291800, posts: 1, type: "organic", noTag: false },
-      { label: "@kelseyterry", views: 76423, posts: 5, type: "affiliate", noTag: false },
-      { label: "@kelseylwashburn", views: 123146, posts: 9, type: "affiliate", noTag: false },
-      { label: "@be.gabriela", views: 12204, posts: 2, type: "organic", noTag: false },
-      { label: "@scentsavvyryan", views: 5499, posts: 1, type: "organic", noTag: false },
-      { label: "@heyitsdrock", views: 5211, posts: 1, type: "organic", noTag: false },
-      { label: "@ellie..homola", views: 3802, posts: 1, type: "organic", noTag: false },
-      { label: "@speedqueenmamma", views: 2952, posts: 1, type: "organic", noTag: false },
-      { label: "@dumpdeals", views: 1711, posts: 1, type: "organic", noTag: false },
-      { label: "@graceeharmer", views: 1570, posts: 1, type: "organic", noTag: false },
-      { label: "@briannamorais_", views: 0, posts: 1, type: "organic", noTag: false },
-      { label: "@claireelise919", views: 0, posts: 1, type: "organic", noTag: false },
-      { label: "@kelllypadua", views: 727, posts: 2, type: "organic", noTag: false },
-      { label: "@lilylonka", views: 0, posts: 1, type: "organic", noTag: false },
-      { label: "@mackenzieballou", views: 1745, posts: 2, type: "organic", noTag: false },
-      { label: "@paytonstrait", views: 0, posts: 1, type: "organic", noTag: false },
-      { label: "@amberjordannn", views: 12800, posts: 1, type: "organic", noTag: false },
-      { label: "@mckenziemcmahonn", views: 615, posts: 1, type: "organic", noTag: false },
-      { label: "@mrkecom", views: 0, posts: 0, type: "organic", noTag: true },
+      { label: "@alliebock", views: 291800, posts: 1, type: "organic", noTag: false, lastPost: null, isNew: false },
+      { label: "@kelseyterry", views: 76423, posts: 5, type: "affiliate", noTag: false, lastPost: "2026-09-19", isNew: true },
+      { label: "@kelseylwashburn", views: 123146, posts: 9, type: "affiliate", noTag: false, lastPost: "2026-09-19", isNew: true },
+      { label: "@be.gabriela", views: 12204, posts: 2, type: "organic", noTag: false, lastPost: "2026-09-19", isNew: true },
+      { label: "@scentsavvyryan", views: 5499, posts: 1, type: "organic", noTag: false, lastPost: null, isNew: false },
+      { label: "@heyitsdrock", views: 5211, posts: 1, type: "organic", noTag: false, lastPost: null, isNew: false },
+      { label: "@ellie..homola", views: 3802, posts: 1, type: "organic", noTag: false, lastPost: null, isNew: false },
+      { label: "@speedqueenmamma", views: 2952, posts: 1, type: "organic", noTag: false, lastPost: null, isNew: false },
+      { label: "@dumpdeals", views: 1711, posts: 1, type: "organic", noTag: false, lastPost: null, isNew: false },
+      { label: "@graceeharmer", views: 1570, posts: 1, type: "organic", noTag: false, lastPost: null, isNew: false },
+      { label: "@briannamorais_", views: 0, posts: 1, type: "organic", noTag: false, lastPost: "2026-09-19", isNew: false },
+      { label: "@claireelise919", views: 0, posts: 1, type: "organic", noTag: false, lastPost: "2026-09-19", isNew: false },
+      { label: "@kelllypadua", views: 727, posts: 2, type: "organic", noTag: false, lastPost: "2026-09-19", isNew: true },
+      { label: "@lilylonka", views: 0, posts: 1, type: "organic", noTag: false, lastPost: "2026-09-19", isNew: false },
+      { label: "@mackenzieballou", views: 1745, posts: 2, type: "organic", noTag: false, lastPost: "2026-09-19", isNew: true },
+      { label: "@paytonstrait", views: 0, posts: 1, type: "organic", noTag: false, lastPost: "2026-09-19", isNew: false },
+      { label: "@amberjordannn", views: 12800, posts: 1, type: "organic", noTag: false, lastPost: "2026-09-19", isNew: true },
+      { label: "@mckenziemcmahonn", views: 615, posts: 1, type: "organic", noTag: false, lastPost: "2026-09-19", isNew: true },
+      { label: "@mrkecom", views: 0, posts: 0, type: "organic", noTag: true, lastPost: null, isNew: false },
     ];
+
+    const weekLabels = ["Sun 09/13", "Mon 09/14", "Tue 09/15", "Wed 09/16", "Thu 09/17", "Fri 09/18", "Sat 09/19"];
+    const weekCounts = [0, 0, 0, 0, 0, 0, 17];
+    const lastCheck = {"at": "2026-09-19T17:17:35-07:00", "label": "Sep 19, 5:17pm PT"};
+    const newSinceCheck = 11;
     let data = initial.map((d) => ({ ...d }));
     let rankMode = 'points';
 
@@ -808,6 +862,68 @@
       return list;
     }
 
+
+    const weekChart = new Chart(document.getElementById('weekChart'), {
+      type: 'line',
+      data: {
+        labels: weekLabels,
+        datasets: [{
+          label: 'Loaded posts',
+          data: weekCounts,
+          borderColor: '#14b8a6',
+          backgroundColor: (ctx) => {
+            const g = ctx.chart.ctx.createLinearGradient(0, 0, 0, 240);
+            g.addColorStop(0, 'rgba(20,184,166,0.35)');
+            g.addColorStop(1, 'rgba(20,184,166,0.02)');
+            return g;
+          },
+          borderWidth: 3,
+          pointRadius: 4,
+          pointHoverRadius: 6,
+          pointBackgroundColor: '#fff',
+          pointBorderColor: '#14b8a6',
+          pointBorderWidth: 2,
+          fill: true,
+          tension: 0.35,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: '#fff',
+            titleColor: '#1e293b',
+            bodyColor: '#1e293b',
+            borderColor: '#e8eef7',
+            borderWidth: 1,
+            padding: 12,
+            displayColors: false,
+            callbacks: { label: (c) => ' ' + c.raw + ' Loaded posts' },
+          },
+        },
+        scales: {
+          x: {
+            ticks: { color: '#94a3b8', font: { size: 10, family: 'Inter' } },
+            grid: { display: false },
+            border: { display: false },
+          },
+          y: {
+            beginAtZero: true,
+            ticks: {
+              color: '#94a3b8',
+              font: { size: 11, family: 'Inter' },
+              stepSize: 1,
+              precision: 0,
+            },
+            grid: { color: '#eef2f7', drawBorder: false },
+            border: { display: false },
+          },
+        },
+      },
+    });
+
     function syncAll() {
       const views = data.map((d) => Number(d.views) || 0);
       const posts = data.map((d) => Number(d.posts) || 0);
@@ -823,10 +939,17 @@
 
       const affiliates = data.filter((d) => (d.type || 'organic') === 'affiliate').length;
       const organics = data.length - affiliates;
+      const newCount = data.filter((d) => d.isNew).length;
+      const weekTotal = weekCounts.reduce((a, b) => a + b, 0);
+      const banner = document.getElementById('checkBanner');
+      if (banner) {
+        banner.innerHTML = `<strong>Last check:</strong> ${lastCheck.label} · <strong>${newSinceCheck}</strong> new Loaded posts logged` +
+          (newCount ? ` · <strong>${newCount}</strong> creators highlighted` : '');
+      }
       document.getElementById('kpis').innerHTML = `
         <div class="kpi"><div class="label">Creators</div><div class="value">${data.length}</div><div class="delta">${affiliates} affiliate · ${organics} organic</div></div>
-        <div class="kpi"><div class="label">Total views</div><div class="value">${fmt(totalViews)}</div><div class="delta">${fmtFull(totalViews)}</div></div>
-        <div class="kpi"><div class="label">Content posted</div><div class="value">${totalPosts}</div><div class="delta">posts for you</div></div>
+        <div class="kpi"><div class="label">Loaded posts</div><div class="value">${totalPosts}</div><div class="delta">${weekTotal} logged this week</div></div>
+        <div class="kpi"><div class="label">New last check</div><div class="value">${newSinceCheck}</div><div class="delta">${lastCheck.label}</div></div>
         <div class="kpi"><div class="label">#1 ranked</div><div class="value">${leader ? leader.points : 0}</div><div class="delta">${leader ? leader.label + ' pts' : '—'}</div></div>
       `;
 
@@ -863,7 +986,16 @@
         const href = tiktokHref(d.label);
         const typ = (d.type || 'organic') === 'affiliate' ? 'affiliate' : 'organic';
         const safe = href.replaceAll('&', '&amp;').replaceAll('"', '&quot;');
-        return `<tr class="rank-row" data-tt="${safe}" title="Open on TikTok">
+        const last = d.lastPost || null;
+        let lastClass = 'last-post';
+        let lastLabel = '—';
+        if (last) {
+          lastLabel = last;
+          const age = (Date.parse(lastCheck.at) - Date.parse(last + 'T12:00:00-07:00')) / 86400000;
+          if (age <= 2) lastClass += ' fresh';
+          else if (age >= 14) lastClass += ' stale';
+        }
+        return `<tr class="rank-row${d.isNew ? ' is-new' : ''}" data-tt="${safe}" title="Open on TikTok">
           <td class="place">${i + 1}</td>
           <td>
             <div class="creator-cell">
@@ -871,7 +1003,7 @@
               <div style="min-width:0;flex:1">
                 <a class="creator-link" href="${safe}" target="_blank" rel="noopener noreferrer"
                    onclick="return openTikTok('${safe}', event)">
-                  <div class="creator-name">${d.label || '—'}</div>
+                  <div class="creator-name">${d.label || '—'}${d.isNew ? '<span class="badge-new">NEW</span>' : ''}</div>
                 </a>
                 <a class="tt-url" href="${safe}" target="_blank" rel="noopener noreferrer"
                    onclick="return openTikTok('${safe}', event)">${href}</a>
@@ -885,6 +1017,7 @@
             </div>
           </td>
           <td><span class="type-badge ${typ}">${typ === 'affiliate' ? 'Affiliate' : 'Organic'}</span></td>
+          <td class="${lastClass}">${lastLabel}</td>
           <td class="num pts">${d.points}</td>
           <td class="num muted-num">${fmt(d.views)}</td>
           <td class="num muted-num">${d.posts}</td>
