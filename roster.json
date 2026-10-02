@@ -1,6 +1,6 @@
 {
   "brand": "Loaded Laundry",
-  "updated_at": "2026-10-01T17:06:58-07:00",
+  "updated_at": "2026-10-02T09:02:51-07:00",
   "check_schedule": "twice daily (9:00 and 17:00 PT, 7 days)",
   "loaded_post_signals": [
     "default: product in video + @loaded_laundry tag",
@@ -15,12 +15,13 @@
       "type": "organic",
       "posts_for_loaded": 1,
       "views": 291800,
-      "last_checked": "2026-10-01T17:06:58-07:00",
+      "last_checked": "2026-10-02T09:02:51-07:00",
       "last_loaded_post_id": null,
       "source": "new_bot_sample",
       "track_without_tag": false,
       "last_post_date": null,
-      "latest_video_url": null
+      "latest_video_url": null,
+      "isNew": false
     },
     {
       "handle": "@kelseyterry",
@@ -30,12 +31,13 @@
       "type": "affiliate",
       "posts_for_loaded": 12,
       "views": 76423,
-      "last_checked": "2026-10-01T17:06:58-07:00",
+      "last_checked": "2026-10-02T09:02:51-07:00",
       "last_loaded_post_id": "7689662218744417549",
       "source": "new_bot_sample",
       "track_without_tag": false,
       "last_post_date": "2026-09-25",
-      "latest_video_url": "https://www.tiktok.com/@kelseyterry/video/7689662218744417549"
+      "latest_video_url": "https://www.tiktok.com/@kelseyterry/video/7689662218744417549",
+      "isNew": false
     },
     {
       "handle": "@kelseylwashburn",
@@ -45,12 +47,13 @@
       "type": "affiliate",
       "posts_for_loaded": 12,
       "views": 123146,
-      "last_checked": "2026-10-01T17:06:58-07:00",
+      "last_checked": "2026-10-02T09:02:51-07:00",
       "last_loaded_post_id": "7686309544833666334",
       "source": "new_bot_sample",
       "track_without_tag": false,
       "last_post_date": "2026-09-16",
-      "latest_video_url": "https://www.tiktok.com/@kelseylwashburn/video/7686309544833666334"
+      "latest_video_url": "https://www.tiktok.com/@kelseylwashburn/video/7686309544833666334",
+      "isNew": false
     },
     {
       "handle": "@be.gabriela",
@@ -60,12 +63,13 @@
       "type": "organic",
       "posts_for_loaded": 4,
       "views": 12204,
-      "last_checked": "2026-10-01T17:06:58-07:00",
+      "last_checked": "2026-10-02T09:02:51-07:00",
       "last_loaded_post_id": "7690811097309285645",
       "source": "new_bot_sample",
       "track_without_tag": false,
       "last_post_date": "2026-09-28",
-      "latest_video_url": "https://www.tiktok.com/@be.gabriela/video/7690811097309285645"
+      "latest_video_url": "https://www.tiktok.com/@be.gabriela/video/7690811097309285645",
+      "isNew": false
     },
     {
       "handle": "@scentsavvyryan",
@@ -75,12 +79,13 @@
       "type": "organic",
       "posts_for_loaded": 1,
       "views": 5499,
-      "last_checked": "2026-10-01T17:06:58-07:00",
+      "last_checked": "2026-10-02T09:02:51-07:00",
       "last_loaded_post_id": null,
       "source": "new_bot_sample",
       "track_without_tag": false,
       "last_post_date": null,
-      "latest_video_url": null
+      "latest_video_url": null,
+      "isNew": false
     },
     {
       "handle": "@heyitsdrock",
@@ -90,12 +95,13 @@
       "type": "organic",
       "posts_for_loaded": 1,
       "views": 5211,
-      "last_checked": "2026-10-01T17:06:58-07:00",
+      "last_checked": "2026-10-02T09:02:51-07:00",
       "last_loaded_post_id": null,
       "source": "new_bot_sample",
       "track_without_tag": false,
       "last_post_date": null,
-      "latest_video_url": null
+      "latest_video_url": null,
+      "isNew": false
     },
     {
       "handle": "@ellie..homola",
@@ -105,12 +111,13 @@
       "type": "organic",
       "posts_for_loaded": 1,
       "views": 3802,
-      "last_checked": "2026-10-01T17:06:58-07:00",
+      "last_checked": "2026-10-02T09:02:51-07:00",
       "last_loaded_post_id": null,
       "source": "new_bot_sample",
       "track_without_tag": false,
       "last_post_date": null,
-      "latest_video_url": null
+      "latest_video_url": null,
+      "isNew": false
     },
     {
       "handle": "@speedqueenmamma",
@@ -120,12 +127,13 @@
       "type": "organic",
       "posts_for_loaded": 1,
       "views": 2952,
-      "last_checked": "2026-10-01T17:06:58-07:00",
+      "last_checked": "2026-10-02T09:02:51-07:00",
       "last_loaded_post_id": null,
       "source": "new_bot_sample",
       "track_without_tag": false,
       "last_post_date": null,
-      "latest_video_url": null
+      "latest_video_url": null,
+      "isNew": false
     },
     {
       "handle": "@dumpdeals",
@@ -135,12 +143,13 @@
       "type": "organic",
       "posts_for_loaded": 1,
       "views": 1711,
-      "last_checked": "2026-10-01T17:06:58-07:00",
+      "last_checked": "2026-10-02T09:02:51-07:00",
       "last_loaded_post_id": null,
       "source": "new_bot_sample",
       "track_without_tag": false,
       "last_post_date": null,
-      "latest_video_url": null
+      "latest_video_url": null,
+      "isNew": false
     },
     {
       "handle": "@graceeharmer",
@@ -150,12 +159,13 @@
       "type": "organic",
       "posts_for_loaded": 2,
       "views": 1570,
-      "last_checked": "2026-10-01T17:06:58-07:00",
+      "last_checked": "2026-10-02T09:02:51-07:00",
       "last_loaded_post_id": "7670626053227859214",
       "source": "new_bot_sample",
       "track_without_tag": false,
       "last_post_date": "2026-08-05",
-      "latest_video_url": "https://www.tiktok.com/@graceeharmer/video/7670626053227859214"
+      "latest_video_url": "https://www.tiktok.com/@graceeharmer/video/7670626053227859214",
+      "isNew": false
     },
     {
       "handle": "@briannamorais_",
@@ -165,12 +175,13 @@
       "type": "organic",
       "posts_for_loaded": 1,
       "views": 0,
-      "last_checked": "2026-10-01T17:06:58-07:00",
+      "last_checked": "2026-10-02T09:02:51-07:00",
       "last_loaded_post_id": "7685921073556213005",
       "source": "user_links",
       "track_without_tag": false,
       "last_post_date": "2026-09-15",
-      "latest_video_url": "https://www.tiktok.com/@briannamorais_/video/7685921073556213005"
+      "latest_video_url": "https://www.tiktok.com/@briannamorais_/video/7685921073556213005",
+      "isNew": false
     },
     {
       "handle": "@claireelise919",
@@ -180,12 +191,13 @@
       "type": "organic",
       "posts_for_loaded": 4,
       "views": 0,
-      "last_checked": "2026-10-01T17:06:58-07:00",
+      "last_checked": "2026-10-02T09:02:51-07:00",
       "last_loaded_post_id": "7688862376434650382",
       "source": "user_links",
       "track_without_tag": false,
       "last_post_date": "2026-09-23",
-      "latest_video_url": "https://www.tiktok.com/@claireelise919/video/7688862376434650382"
+      "latest_video_url": "https://www.tiktok.com/@claireelise919/video/7688862376434650382",
+      "isNew": false
     },
     {
       "handle": "@kelllypadua",
@@ -195,12 +207,13 @@
       "type": "organic",
       "posts_for_loaded": 2,
       "views": 727,
-      "last_checked": "2026-10-01T17:06:58-07:00",
+      "last_checked": "2026-10-02T09:02:51-07:00",
       "last_loaded_post_id": "7686675001474338078",
       "source": "user_links",
       "track_without_tag": false,
       "last_post_date": "2026-09-17",
-      "latest_video_url": "https://www.tiktok.com/@kelllypadua/video/7686675001474338078"
+      "latest_video_url": "https://www.tiktok.com/@kelllypadua/video/7686675001474338078",
+      "isNew": false
     },
     {
       "handle": "@lilylonka",
@@ -210,12 +223,13 @@
       "type": "organic",
       "posts_for_loaded": 1,
       "views": 0,
-      "last_checked": "2026-10-01T17:06:58-07:00",
+      "last_checked": "2026-10-02T09:02:51-07:00",
       "last_loaded_post_id": "7686875897546296607",
       "source": "user_links",
       "track_without_tag": false,
       "last_post_date": "2026-09-18",
-      "latest_video_url": "https://www.tiktok.com/@lilylonka/video/7686875897546296607"
+      "latest_video_url": "https://www.tiktok.com/@lilylonka/video/7686875897546296607",
+      "isNew": false
     },
     {
       "handle": "@mackenzieballou",
@@ -225,12 +239,13 @@
       "type": "organic",
       "posts_for_loaded": 4,
       "views": 1745,
-      "last_checked": "2026-10-01T17:06:58-07:00",
+      "last_checked": "2026-10-02T09:02:51-07:00",
       "last_loaded_post_id": "7691028298977119518",
       "source": "user_links",
       "track_without_tag": false,
       "last_post_date": "2026-09-29",
-      "latest_video_url": "https://www.tiktok.com/@mackenzieballou/video/7691028298977119518"
+      "latest_video_url": "https://www.tiktok.com/@mackenzieballou/video/7691028298977119518",
+      "isNew": false
     },
     {
       "handle": "@paytonstrait",
@@ -240,12 +255,13 @@
       "type": "organic",
       "posts_for_loaded": 3,
       "views": 0,
-      "last_checked": "2026-10-01T17:06:58-07:00",
+      "last_checked": "2026-10-02T09:02:51-07:00",
       "last_loaded_post_id": "7690762271579999519",
       "source": "user_links",
       "track_without_tag": false,
       "last_post_date": "2026-09-28",
-      "latest_video_url": "https://www.tiktok.com/@paytonstrait/video/7690762271579999519"
+      "latest_video_url": "https://www.tiktok.com/@paytonstrait/video/7690762271579999519",
+      "isNew": false
     },
     {
       "handle": "@amberjordannn",
@@ -255,12 +271,13 @@
       "type": "organic",
       "posts_for_loaded": 5,
       "views": 12800,
-      "last_checked": "2026-10-01T17:06:58-07:00",
+      "last_checked": "2026-10-02T09:02:51-07:00",
       "last_loaded_post_id": "7691086683248266527",
       "source": "user_links",
       "track_without_tag": false,
       "last_post_date": "2026-09-29",
-      "latest_video_url": "https://www.tiktok.com/@amberjordannn/video/7691086683248266527"
+      "latest_video_url": "https://www.tiktok.com/@amberjordannn/video/7691086683248266527",
+      "isNew": false
     },
     {
       "handle": "@mckenziemcmahonn",
@@ -270,12 +287,13 @@
       "type": "organic",
       "posts_for_loaded": 2,
       "views": 615,
-      "last_checked": "2026-10-01T17:06:58-07:00",
+      "last_checked": "2026-10-02T09:02:51-07:00",
       "last_loaded_post_id": "7684463555491548430",
       "source": "user_links",
       "track_without_tag": false,
       "last_post_date": "2026-09-11",
-      "latest_video_url": "https://www.tiktok.com/@mckenziemcmahonn/video/7684463555491548430"
+      "latest_video_url": "https://www.tiktok.com/@mckenziemcmahonn/video/7684463555491548430",
+      "isNew": false
     },
     {
       "handle": "@mrkecom",
@@ -285,7 +303,7 @@
       "type": "organic",
       "posts_for_loaded": 11,
       "views": 0,
-      "last_checked": "2026-10-01T17:06:58-07:00",
+      "last_checked": "2026-10-02T09:02:51-07:00",
       "last_loaded_post_id": "7688994359995354398",
       "track_without_tag": true,
       "source": "user_added",
@@ -297,7 +315,8 @@
       "track_from": "2026-09-19",
       "note": "Baseline start today; count new Loaded posts only from 2026-09-19 forward.",
       "last_post_date": "2026-09-24",
-      "latest_video_url": "https://www.tiktok.com/@mrkecom/video/7688994359995354398"
+      "latest_video_url": "https://www.tiktok.com/@mrkecom/video/7688994359995354398",
+      "isNew": false
     }
   ],
   "loaded_post_rule": "Counts only when the product is in the video AND they mention @loaded_laundry.",
@@ -305,8 +324,8 @@
   "loaded_post_rule_default": "Product in video AND @loaded_laundry tag.",
   "loaded_post_rule_no_tag": "For creators with track_without_tag=true: count if Loaded bottle is on screen and/or they talk about Loaded, even without @loaded_laundry.",
   "last_scheduled_check": {
-    "at": "2026-09-30T09:01:14-07:00",
-    "label": "Sep 30, 9:01am PT",
+    "at": "2026-10-02T09:02:51-07:00",
+    "label": "Oct 2, 9:02am PT",
     "new_count": 0
   }
 }
