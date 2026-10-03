@@ -647,6 +647,32 @@
       "posted_at": "2026-09-29",
       "posted_at_iso": "2026-09-29T15:24:22-07:00",
       "view_count": 813
+    },
+    {
+      "handle": "@kelseylwashburn",
+      "video_id": "7692260321158778142",
+      "url": "https://www.tiktok.com/@kelseylwashburn/video/7692260321158778142",
+      "noted_at": "2026-10-03",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "Spend the morning with me \ud83e\udef6 #momsoftiktok #motherhood #fitmom #momtok... Spend the morning with me \ud83e\udef6 #momsoftiktok #motherhood #fitmom #momtok #sahm @Saie @MINA BAIE @HYDROJUG @Kane Footwear LLC @Bloom Nutrition @MaryRuth's @Loaded Laundry @lifepro @grace and stella",
+      "rule": "default",
+      "posted_at": "2026-10-02",
+      "posted_at_iso": "2026-10-02T19:18:41-07:00",
+      "view_count": 5125
+    },
+    {
+      "handle": "@mckenziemcmahonn",
+      "video_id": "7692258726064966926",
+      "url": "https://www.tiktok.com/@mckenziemcmahonn/video/7692258726064966926",
+      "noted_at": "2026-10-03",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "Guest room/bathroom reset for our guests coming to stay with us\ud83e\uddfa\ud83e\uddf9\ud83e\udee7 @L... Guest room/bathroom reset for our guests coming to stay with us\ud83e\uddfa\ud83e\uddf9\ud83e\udee7 @Loaded Laundry  #housereset #cleantok #resetwithme",
+      "rule": "default",
+      "posted_at": "2026-10-02",
+      "posted_at_iso": "2026-10-02T19:12:30-07:00",
+      "view_count": 503
     }
   ],
   "historical_pre_baseline": [
@@ -853,8 +879,11 @@
     }
   },
   "last_check": {
-    "at": "2026-10-02T16:59:06-07:00",
-    "label": "Oct 2, 4:59pm PT"
+    "at": "2026-10-03T09:06:49-07:00",
+    "label": "Oct 3, 9:06am PT"
   },
-  "last_check_new_ids": []
+  "last_check_new_ids": [
+    "7692260321158778142",
+    "7692258726064966926"
+  ]
 }
