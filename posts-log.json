@@ -673,6 +673,19 @@
       "posted_at": "2026-10-02",
       "posted_at_iso": "2026-10-02T19:12:30-07:00",
       "view_count": 503
+    },
+    {
+      "handle": "@amberjordannn",
+      "video_id": "7693309723029900575",
+      "url": "https://www.tiktok.com/@amberjordannn/video/7693309723029900575",
+      "noted_at": "2026-10-05",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "sunday reset with me!!🌟🫧👻🤎 #sundayreset #resetwithme #cozyvibes #cleaningmotivation #cleantok @Bloom Nutrition @Loaded Laundry ",
+      "rule": "default",
+      "posted_at": "2026-10-05",
+      "posted_at_iso": "2026-10-05T15:10:54-07:00",
+      "view_count": 1509
     }
   ],
   "historical_pre_baseline": [
@@ -879,8 +892,10 @@
     }
   },
   "last_check": {
-    "at": "2026-10-05T09:11:20-07:00",
-    "label": "Oct 5, 9:11am PT"
+    "at": "2026-10-05T17:01:14-07:00",
+    "label": "Oct 5, 5:01pm PT"
   },
-  "last_check_new_ids": []
+  "last_check_new_ids": [
+    "7693309723029900575"
+  ]
 }
