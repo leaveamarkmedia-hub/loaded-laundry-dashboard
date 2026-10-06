@@ -686,6 +686,32 @@
       "posted_at": "2026-10-05",
       "posted_at_iso": "2026-10-05T15:10:54-07:00",
       "view_count": 1509
+    },
+    {
+      "handle": "@kelseyterry",
+      "video_id": "7693571336039402766",
+      "url": "https://www.tiktok.com/@kelseyterry/video/7693571336039402766",
+      "noted_at": "2026-10-06",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "send all the homeopathic remedies my way!! we have approached sick season and I’m not prepared 🤢🤧 #homeopathic #motherhood #fitmom #momof3 #sahm @SUUKSESS @CRZ YOGA @Lume Deodorant @betterday @Beam @Loaded Laundry @Bag Balm ",
+      "rule": "default",
+      "posted_at": "2026-10-06",
+      "posted_at_iso": "2026-10-06T08:06:06-07:00",
+      "view_count": 551
+    },
+    {
+      "handle": "@mckenziemcmahonn",
+      "video_id": "7693361922929937677",
+      "url": "https://www.tiktok.com/@mckenziemcmahonn/video/7693361922929937677",
+      "noted_at": "2026-10-06",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "Guest bathroom reset after a week full of family stays 🧺🫧🧹 @Mrs. Meyer’s Clean Day @The Pink Stuff USA @Tineco-US @Loaded Laundry @Bloom Nutrition #bathroomreset #cleanwithme #clean #cleaningtiktok ",
+      "rule": "default",
+      "posted_at": "2026-10-05",
+      "posted_at_iso": "2026-10-05T18:33:28-07:00",
+      "view_count": 418
     }
   ],
   "historical_pre_baseline": [
@@ -892,10 +918,11 @@
     }
   },
   "last_check": {
-    "at": "2026-10-05T17:01:14-07:00",
-    "label": "Oct 5, 5:01pm PT"
+    "at": "2026-10-06T09:02:11-07:00",
+    "label": "Oct 6, 9:02am PT"
   },
   "last_check_new_ids": [
-    "7693309723029900575"
+    "7693571336039402766",
+    "7693361922929937677"
   ]
 }
