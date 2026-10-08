@@ -712,6 +712,19 @@
       "posted_at": "2026-10-05",
       "posted_at_iso": "2026-10-05T18:33:28-07:00",
       "view_count": 418
+    },
+    {
+      "handle": "@mackenzieballou",
+      "video_id": "7694096335066516767",
+      "url": "https://www.tiktok.com/@mackenzieballou/video/7694096335066516767",
+      "noted_at": "2026-10-08",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "Get up and clean your house!! 🎃🦇🫧🧽 @Bloom Nutrition @Loaded Laundry @Sam’s Club @Better Homes & Gardens #bloomcreator #giftedbybloom #cleanwithme #cleaning #cleantok ",
+      "rule": "default",
+      "posted_at": "2026-10-07",
+      "posted_at_iso": "2026-10-07T18:03:22-07:00",
+      "view_count": 7696
     }
   ],
   "historical_pre_baseline": [
@@ -918,8 +931,10 @@
     }
   },
   "last_check": {
-    "at": "2026-10-07T17:00:31-07:00",
-    "label": "Oct 7, 5:00pm PT"
+    "at": "2026-10-08T09:54:11-07:00",
+    "label": "Oct 8, 9:54am PT"
   },
-  "last_check_new_ids": 0
+  "last_check_new_ids": [
+    "7694096335066516767"
+  ]
 }
