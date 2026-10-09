@@ -725,6 +725,32 @@
       "posted_at": "2026-10-07",
       "posted_at_iso": "2026-10-07T18:03:22-07:00",
       "view_count": 7696
+    },
+    {
+      "handle": "@kelseyterry",
+      "video_id": "7694470148392029453",
+      "url": "https://www.tiktok.com/@kelseyterry/video/7694470148392029453",
+      "noted_at": "2026-10-09",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "my people really spoiled me today 🥹💗 my 20’s were the best years of my life - I became a mama x3 and gained an entire new purpose. I love this season of life so so much 💗 #motherhood #momlife #momof3 #fitmom #dailyvlog @Beam @betterday @The Ladies Edge @DIBSBEAUTY @Makeup By Mario @Hard Candy @Sol de Janeiro @NatureWell Beauty @Athena @Loaded Laundry ",
+      "rule": "default",
+      "posted_at": "2026-10-08",
+      "posted_at_iso": "2026-10-08T18:13:57-07:00",
+      "view_count": 2443
+    },
+    {
+      "handle": "@kelseylwashburn",
+      "video_id": "7694476437167869215",
+      "url": "https://www.tiktok.com/@kelseylwashburn/video/7694476437167869215",
+      "noted_at": "2026-10-09",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "Spend the day with me 🌞🫶 #momsoftiktok #motherhood #fitmom #workout #dayinthelife @Kane Footwear LLC @Learning With Kelsey @betterday @The Ladies Edge @Loaded Laundry @WMP Eyewear @epionce @skinbetter science @Seed Health @Perfect Bar ",
+      "rule": "default",
+      "posted_at": "2026-10-08",
+      "posted_at_iso": "2026-10-08T18:38:21-07:00",
+      "view_count": 3421
     }
   ],
   "historical_pre_baseline": [
@@ -931,10 +957,11 @@
     }
   },
   "last_check": {
-    "at": "2026-10-08T09:54:11-07:00",
-    "label": "Oct 8, 9:54am PT"
+    "at": "2026-10-09T09:17:20-07:00",
+    "label": "Oct 9, 9:17am PT"
   },
   "last_check_new_ids": [
-    "7694096335066516767"
+    "7694470148392029453",
+    "7694476437167869215"
   ]
 }
