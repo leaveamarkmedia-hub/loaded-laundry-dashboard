@@ -751,6 +751,19 @@
       "posted_at": "2026-10-08",
       "posted_at_iso": "2026-10-08T18:38:21-07:00",
       "view_count": 3421
+    },
+    {
+      "handle": "@kelseyterry",
+      "video_id": "7696345219108752671",
+      "url": "https://www.tiktok.com/@kelseyterry/video/7696345219108752671",
+      "noted_at": "2026-10-14",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "spend a productive Tuesday with me 🤗 #motberhood #momlite #fitmom #dailyvlog #momtok @On @shopfancy.us @The Ladies Edge @Just.Ingredients @SharkNinja @Shark Home @Loaded Laundry @Color Wow Hair @Olaplex @Kenra Professional @anua_global  ",
+      "rule": "default",
+      "posted_at": "2026-10-13",
+      "posted_at_iso": "2026-10-13T19:30:11-07:00",
+      "view_count": 6795
     }
   ],
   "historical_pre_baseline": [
@@ -957,8 +970,10 @@
     }
   },
   "last_check": {
-    "at": "2026-10-13T16:56:12-07:00",
-    "label": "Oct 13, 4:56pm PT"
+    "at": "2026-10-14T09:04:56-07:00",
+    "label": "Oct 14, 9:04am PT"
   },
-  "last_check_new_ids": 0
+  "last_check_new_ids": [
+    "7696345219108752671"
+  ]
 }
