@@ -764,6 +764,19 @@
       "posted_at": "2026-10-13",
       "posted_at_iso": "2026-10-13T19:30:11-07:00",
       "view_count": 6795
+    },
+    {
+      "handle": "@kelseylwashburn",
+      "video_id": "7697822407502925087",
+      "url": "https://www.tiktok.com/@kelseylwashburn/video/7697822407502925087",
+      "noted_at": "2026-10-18",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "Day-in-life vlog; caption tags @Loaded Laundry; white Loaded bottle (Italian Riviera, 50 loads) poured into washer ~25s",
+      "rule": "default",
+      "posted_at": "2026-10-17",
+      "posted_at_iso": "2026-10-17T19:02:25-07:00",
+      "view_count": 4318
     }
   ],
   "historical_pre_baseline": [
@@ -970,8 +983,10 @@
     }
   },
   "last_check": {
-    "at": "2026-10-17T17:03:25-07:00",
-    "label": "Oct 17, 5:03pm PT"
+    "at": "2026-10-18T09:04:23-07:00",
+    "label": "Oct 18, 9:04am PT"
   },
-  "last_check_new_ids": 0
+  "last_check_new_ids": [
+    "7697822407502925087"
+  ]
 }
