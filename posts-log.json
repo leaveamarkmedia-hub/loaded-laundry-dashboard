@@ -777,6 +777,19 @@
       "posted_at": "2026-10-17",
       "posted_at_iso": "2026-10-17T19:02:25-07:00",
       "view_count": 4318
+    },
+    {
+      "handle": "@paytonstrait",
+      "video_id": "7699310374356634910",
+      "url": "https://www.tiktok.com/@paytonstrait/video/7699310374356634910",
+      "noted_at": "2026-10-22",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "Midweek reset clean-with-me; caption tags @Loaded Laundry; white Loaded bottle (Malibu Rosewood, 50 loads) shown and poured into washer ~12s",
+      "rule": "default",
+      "posted_at": "2026-10-21",
+      "posted_at_iso": "2026-10-21T19:16:30-07:00",
+      "view_count": 593
     }
   ],
   "historical_pre_baseline": [
@@ -983,8 +996,10 @@
     }
   },
   "last_check": {
-    "at": "2026-10-21T16:59:54-07:00",
-    "label": "Oct 21, 4:59pm PT"
+    "at": "2026-10-22T09:02:34-07:00",
+    "label": "Oct 22, 9:02am PT"
   },
-  "last_check_new_ids": 0
+  "last_check_new_ids": [
+    "7699310374356634910"
+  ]
 }
