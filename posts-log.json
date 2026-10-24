@@ -790,6 +790,19 @@
       "posted_at": "2026-10-21",
       "posted_at_iso": "2026-10-21T19:16:30-07:00",
       "view_count": 593
+    },
+    {
+      "handle": "@amberjordannn",
+      "video_id": "7699904334636551455",
+      "url": "https://www.tiktok.com/@amberjordannn/video/7699904334636551455",
+      "noted_at": "2026-10-23",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "Day 59/75 Hard morning routine vlog; caption tags @Loaded Laundry; white Loaded bottle (Sahara Sandalwood, 50 loads) held up and poured into washer ~29-31s",
+      "rule": "default",
+      "posted_at": "2026-10-23",
+      "posted_at_iso": "2026-10-23T09:41:22-07:00",
+      "view_count": 1425
     }
   ],
   "historical_pre_baseline": [
@@ -996,8 +1009,10 @@
     }
   },
   "last_check": {
-    "at": "2026-10-23T09:02:15-07:00",
-    "label": "Oct 23, 9:02am PT"
+    "at": "2026-10-23T17:00:48-07:00",
+    "label": "Oct 23, 5:00pm PT"
   },
-  "last_check_new_ids": 0
+  "last_check_new_ids": [
+    "7699904334636551455"
+  ]
 }
