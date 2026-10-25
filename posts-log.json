@@ -816,6 +816,19 @@
       "posted_at": "2026-10-23",
       "posted_at_iso": "2026-10-23T19:36:00-07:00",
       "view_count": 2992
+    },
+    {
+      "handle": "@kelseyterry",
+      "video_id": "7700375374634487071",
+      "url": "https://www.tiktok.com/@kelseyterry/video/7700375374634487071",
+      "noted_at": "2026-10-24",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "\"there’s NO place like home\" day-in-life vlog; caption tags @Loaded Laundry; white Loaded bottle (pink 50-loads badge) poured into cap at washer ~25s",
+      "rule": "default",
+      "posted_at": "2026-10-24",
+      "posted_at_iso": "2026-10-24T16:09:14-07:00",
+      "view_count": 697
     }
   ],
   "historical_pre_baseline": [
@@ -1022,10 +1035,10 @@
     }
   },
   "last_check": {
-    "at": "2026-10-24T09:05:17-07:00",
-    "label": "Oct 24, 9:05am PT"
+    "at": "2026-10-24T17:00:36-07:00",
+    "label": "Oct 24, 5:00pm PT"
   },
   "last_check_new_ids": [
-    "7700057570018381086"
+    "7700375374634487071"
   ]
 }
