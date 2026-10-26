@@ -829,6 +829,19 @@
       "posted_at": "2026-10-24",
       "posted_at_iso": "2026-10-24T16:09:14-07:00",
       "view_count": 697
+    },
+    {
+      "handle": "@briannamorais_",
+      "video_id": "7698164519406701837",
+      "url": "https://www.tiktok.com/@briannamorais_/video/7698164519406701837",
+      "noted_at": "2026-10-26",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "Mini Saturday reset before two shifts cleaning vlog; caption tags @Loaded Laundry; white Loaded bottle (pink 50-loads badge) held over washer ~4-6s; posted Oct 18 but missed by earlier checks, logged Oct 26",
+      "rule": "default",
+      "posted_at": "2026-10-18",
+      "posted_at_iso": "2026-10-18T17:10:00-07:00",
+      "view_count": 891
     }
   ],
   "historical_pre_baseline": [
@@ -1035,8 +1048,10 @@
     }
   },
   "last_check": {
-    "at": "2026-10-25T16:56:03-07:00",
-    "label": "Oct 25, 4:56pm PT"
+    "at": "2026-10-26T09:04:17-07:00",
+    "label": "Oct 26, 9:04am PT"
   },
-  "last_check_new_ids": 0
+  "last_check_new_ids": [
+    "7698164519406701837"
+  ]
 }
