@@ -842,6 +842,19 @@
       "posted_at": "2026-10-18",
       "posted_at_iso": "2026-10-18T17:10:00-07:00",
       "view_count": 891
+    },
+    {
+      "handle": "@kelseyterry",
+      "video_id": "7701533771799055647",
+      "url": "https://www.tiktok.com/@kelseyterry/video/7701533771799055647",
+      "noted_at": "2026-10-28",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "Morning movement / housework vlog; caption tags @Loaded Laundry; white Loaded bottle (purple 50-loads badge) poured into washer around 0:53-0:55",
+      "rule": "default",
+      "posted_at": "2026-10-27",
+      "posted_at_iso": "2026-10-27T19:04:25-07:00",
+      "view_count": 4473
     }
   ],
   "historical_pre_baseline": [
@@ -1048,8 +1061,10 @@
     }
   },
   "last_check": {
-    "at": "2026-10-27T17:04:22-07:00",
-    "label": "Oct 27, 5:04pm PT"
+    "at": "2026-10-28T09:01:48-07:00",
+    "label": "Oct 28, 9:01am PT"
   },
-  "last_check_new_ids": 0
+  "last_check_new_ids": [
+    "7701533771799055647"
+  ]
 }
