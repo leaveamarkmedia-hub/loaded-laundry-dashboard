@@ -855,6 +855,32 @@
       "posted_at": "2026-10-27",
       "posted_at_iso": "2026-10-27T19:04:25-07:00",
       "view_count": 4473
+    },
+    {
+      "handle": "@kelllypadua",
+      "video_id": "7701767234498120991",
+      "url": "https://www.tiktok.com/@kelllypadua/video/7701767234498120991",
+      "noted_at": "2026-10-28",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "Morning routine / 33 weeks pregnant vlog; caption tags @Loaded Laundry; unboxes Loaded box at kitchen island, white Loaded bottle with purple badge shown, then laundry at washer",
+      "rule": "default",
+      "posted_at": "2026-10-28",
+      "posted_at_iso": "2026-10-28T10:10:22-07:00",
+      "view_count": 344
+    },
+    {
+      "handle": "@amberjordannn",
+      "video_id": "7701784698804161822",
+      "url": "https://www.tiktok.com/@amberjordannn/video/7701784698804161822",
+      "noted_at": "2026-10-28",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "Day 64 of 75 Hard morning vlog; caption tags @Loaded Laundry; white Loaded bottle (orange 50-loads badge) held over washer at the 10:00am laundry segment",
+      "rule": "default",
+      "posted_at": "2026-10-28",
+      "posted_at_iso": "2026-10-28T11:18:08-07:00",
+      "view_count": 1442
     }
   ],
   "historical_pre_baseline": [
@@ -1061,10 +1087,11 @@
     }
   },
   "last_check": {
-    "at": "2026-10-28T09:01:48-07:00",
-    "label": "Oct 28, 9:01am PT"
+    "at": "2026-10-28T16:57:18-07:00",
+    "label": "Oct 28, 4:57pm PT"
   },
   "last_check_new_ids": [
-    "7701533771799055647"
+    "7701767234498120991",
+    "7701784698804161822"
   ]
 }
