@@ -881,6 +881,19 @@
       "posted_at": "2026-10-28",
       "posted_at_iso": "2026-10-28T11:18:08-07:00",
       "view_count": 1442
+    },
+    {
+      "handle": "@claireelise919",
+      "video_id": "7702829786657295629",
+      "url": "https://www.tiktok.com/@claireelise919/video/7702829786657295629",
+      "noted_at": "2026-10-31",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "Halloweekend cleaning mashup; caption tags @Loaded Laundry; white Loaded Tahitian Vanilla bottle (50 loads) poured into cap at the washer",
+      "rule": "default",
+      "posted_at": "2026-10-31",
+      "posted_at_iso": "2026-10-31T06:53:37-07:00",
+      "view_count": 360
     }
   ],
   "historical_pre_baseline": [
@@ -1087,8 +1100,10 @@
     }
   },
   "last_check": {
-    "at": "2026-10-30T16:57:46-07:00",
-    "label": "Oct 30, 4:57pm PT"
+    "at": "2026-10-31T09:02:02-07:00",
+    "label": "Oct 31, 9:02am PT"
   },
-  "last_check_new_ids": 0
+  "last_check_new_ids": [
+    "7702829786657295629"
+  ]
 }
