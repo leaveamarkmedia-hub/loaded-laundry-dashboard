@@ -1100,10 +1100,8 @@
     }
   },
   "last_check": {
-    "at": "2026-10-31T09:02:02-07:00",
-    "label": "Oct 31, 9:02am PT"
+    "at": "2026-10-31T17:00:56-07:00",
+    "label": "Oct 31, 5:00pm PT"
   },
-  "last_check_new_ids": [
-    "7702829786657295629"
-  ]
+  "last_check_new_ids": 0
 }
