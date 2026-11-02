@@ -894,6 +894,19 @@
       "posted_at": "2026-10-31",
       "posted_at_iso": "2026-10-31T06:53:37-07:00",
       "view_count": 360
+    },
+    {
+      "handle": "@kelseyterry",
+      "video_id": "7703411911320210719",
+      "url": "https://www.tiktok.com/@kelseyterry/video/7703411911320210719",
+      "noted_at": "2026-11-02",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "Halloween weekend + time change morning vlog; caption tags @Loaded Laundry; white Loaded bottle (purple badge) poured into cap at the washer ~0:07-0:09",
+      "rule": "default",
+      "posted_at": "2026-11-01",
+      "posted_at_iso": "2026-11-01T19:32:33-08:00",
+      "view_count": 2928
     }
   ],
   "historical_pre_baseline": [
@@ -1100,8 +1113,10 @@
     }
   },
   "last_check": {
-    "at": "2026-11-01T16:57:25-08:00",
-    "label": "Nov 1, 4:57pm PT"
+    "at": "2026-11-02T09:00:18-08:00",
+    "label": "Nov 2, 9:00am PT"
   },
-  "last_check_new_ids": 0
+  "last_check_new_ids": [
+    "7703411911320210719"
+  ]
 }
