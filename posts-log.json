@@ -1113,10 +1113,8 @@
     }
   },
   "last_check": {
-    "at": "2026-11-02T09:00:18-08:00",
-    "label": "Nov 2, 9:00am PT"
+    "at": "2026-11-02T16:55:06-08:00",
+    "label": "Nov 2, 4:55pm PT"
   },
-  "last_check_new_ids": [
-    "7703411911320210719"
-  ]
+  "last_check_new_ids": 0
 }
