@@ -907,6 +907,32 @@
       "posted_at": "2026-11-01",
       "posted_at_iso": "2026-11-01T19:32:33-08:00",
       "view_count": 2928
+    },
+    {
+      "handle": "@kelseyterry",
+      "video_id": "7704528702633282846",
+      "url": "https://www.tiktok.com/@kelseyterry/video/7704528702633282846",
+      "noted_at": "2026-11-05",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "Ordinary Wednesday day-in-life vlog; caption tags @Loaded Laundry; white Loaded bottle (pink 50-loads badge) held at washer ~0:19-0:22; talks up Loaded scents incl. Malibu Rosewood",
+      "rule": "default",
+      "posted_at": "2026-11-04",
+      "posted_at_iso": "2026-11-04T19:46:16-08:00",
+      "view_count": 3869
+    },
+    {
+      "handle": "@mackenzieballou",
+      "video_id": "7704505258357132575",
+      "url": "https://www.tiktok.com/@mackenzieballou/video/7704505258357132575",
+      "noted_at": "2026-11-05",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "House reset clean-with-me; caption tags @Loaded Laundry; white Loaded Tropical Vanilla bottle (50 loads) shown on washer ~0:56",
+      "rule": "default",
+      "posted_at": "2026-11-04",
+      "posted_at_iso": "2026-11-04T18:15:18-08:00",
+      "view_count": 2916
     }
   ],
   "historical_pre_baseline": [
@@ -1113,8 +1139,11 @@
     }
   },
   "last_check": {
-    "at": "2026-11-04T17:03:31-08:00",
-    "label": "Nov 4, 5:03pm PT"
+    "at": "2026-11-05T09:06:55-08:00",
+    "label": "Nov 5, 9:06am PT"
   },
-  "last_check_new_ids": 0
+  "last_check_new_ids": [
+    "7704528702633282846",
+    "7704505258357132575"
+  ]
 }
