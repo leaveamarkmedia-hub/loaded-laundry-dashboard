@@ -933,6 +933,19 @@
       "posted_at": "2026-11-04",
       "posted_at_iso": "2026-11-04T18:15:18-08:00",
       "view_count": 2916
+    },
+    {
+      "handle": "@amberjordannn",
+      "video_id": "7704754482940251423",
+      "url": "https://www.tiktok.com/@amberjordannn/video/7704754482940251423",
+      "noted_at": "2026-11-05",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "Weekly reset before vacay clean-with-me; caption tags @Loaded Laundry; white Loaded bottle (50 loads) held at washer ~0:15 then poured into top-load",
+      "rule": "default",
+      "posted_at": "2026-11-05",
+      "posted_at_iso": "2026-11-05T10:22:25-08:00",
+      "view_count": 3585
     }
   ],
   "historical_pre_baseline": [
@@ -1139,11 +1152,10 @@
     }
   },
   "last_check": {
-    "at": "2026-11-05T09:06:55-08:00",
-    "label": "Nov 5, 9:06am PT"
+    "at": "2026-11-05T17:06:19-08:00",
+    "label": "Nov 5, 5:06pm PT"
   },
   "last_check_new_ids": [
-    "7704528702633282846",
-    "7704505258357132575"
+    "7704754482940251423"
   ]
 }
