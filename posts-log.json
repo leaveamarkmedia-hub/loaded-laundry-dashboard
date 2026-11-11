@@ -959,6 +959,19 @@
       "posted_at": "2026-11-06",
       "posted_at_iso": "2026-11-06T20:34:44-08:00",
       "view_count": 5243
+    },
+    {
+      "handle": "@paytonstrait",
+      "video_id": "7706731141503487262",
+      "url": "https://www.tiktok.com/@paytonstrait/video/7706731141503487262",
+      "noted_at": "2026-11-11",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "Before-pickup day-in-the-life vlog; caption tags @Loaded Laundry; white Loaded Brazilian Tonka bottle (50 loads) held up at washer then poured into the detergent drawer ~0:13",
+      "rule": "default",
+      "posted_at": "2026-11-10",
+      "posted_at_iso": "2026-11-10T18:12:52-08:00",
+      "view_count": 2150
     }
   ],
   "historical_pre_baseline": [
@@ -1165,8 +1178,10 @@
     }
   },
   "last_check": {
-    "at": "2026-11-10T17:06:18-08:00",
-    "label": "Nov 10, 5:06pm PT"
+    "at": "2026-11-11T09:05:16-08:00",
+    "label": "Nov 11, 9:05am PT"
   },
-  "last_check_new_ids": 0
+  "last_check_new_ids": [
+    "7706731141503487262"
+  ]
 }
