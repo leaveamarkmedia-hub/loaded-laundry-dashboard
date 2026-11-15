@@ -972,6 +972,32 @@
       "posted_at": "2026-11-10",
       "posted_at_iso": "2026-11-10T18:12:52-08:00",
       "view_count": 2150
+    },
+    {
+      "handle": "@mrkecom",
+      "video_id": "7708116066723007774",
+      "url": "https://www.tiktok.com/@mrkecom/video/7708116066723007774",
+      "noted_at": "2026-11-14",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "Day 1 of searching for creators in San Diego; holds a white Loaded bottle on camera and talks about promoting the luxury detergent brand, offering a free bottle and a chance to make money. Caption: Where ya at? #business #brand #sandiego",
+      "rule": "no_tag",
+      "posted_at": "2026-11-14",
+      "posted_at_iso": "2026-11-14T11:47:05-08:00",
+      "view_count": 157
+    },
+    {
+      "handle": "@mrkecom",
+      "video_id": "7708118151086558495",
+      "url": "https://www.tiktok.com/@mrkecom/video/7708118151086558495",
+      "noted_at": "2026-11-14",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "Talks about Loaded by name (luxury laundry detergent; Tahitian Vanilla, Sahara Sandalwood, and five other scents with clean ingredients); holds a white Loaded bottle on camera and offers $100 for a viral idea. Caption: We will see #business #brand #sandiego",
+      "rule": "no_tag",
+      "posted_at": "2026-11-14",
+      "posted_at_iso": "2026-11-14T11:55:10-08:00",
+      "view_count": 121
     }
   ],
   "historical_pre_baseline": [
@@ -1178,8 +1204,11 @@
     }
   },
   "last_check": {
-    "at": "2026-11-14T08:50:27-08:00",
-    "label": "Nov 14, 8:50am PT"
+    "at": "2026-11-14T16:53:00-08:00",
+    "label": "Nov 14, 4:53pm PT"
   },
-  "last_check_new_ids": 0
+  "last_check_new_ids": [
+    "7708116066723007774",
+    "7708118151086558495"
+  ]
 }
