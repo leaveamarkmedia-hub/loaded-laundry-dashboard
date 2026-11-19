@@ -1011,6 +1011,19 @@
       "posted_at": "2026-11-14",
       "posted_at_iso": "2026-11-14T17:51:59-08:00",
       "view_count": 197
+    },
+    {
+      "handle": "@paytonstrait",
+      "video_id": "7709707441725771022",
+      "url": "https://www.tiktok.com/@paytonstrait/video/7709707441725771022",
+      "noted_at": "2026-11-19",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "Midweek reset clean-with-me; caption tags @Loaded Laundry; white Loaded Brazilian Tonka bottle (50 loads) held up at washer then poured into a cap ~0:08-0:10",
+      "rule": "default",
+      "posted_at": "2026-11-18",
+      "posted_at_iso": "2026-11-18T18:42:26-08:00",
+      "view_count": 449
     }
   ],
   "historical_pre_baseline": [
@@ -1217,8 +1230,10 @@
     }
   },
   "last_check": {
-    "at": "2026-11-18T16:48:06-08:00",
-    "label": "Nov 18, 4:48pm PT"
+    "at": "2026-11-19T08:49:04-08:00",
+    "label": "Nov 19, 8:49am PT"
   },
-  "last_check_new_ids": 0
+  "last_check_new_ids": [
+    "7709707441725771022"
+  ]
 }
