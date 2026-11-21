@@ -1024,6 +1024,19 @@
       "posted_at": "2026-11-18",
       "posted_at_iso": "2026-11-18T18:42:26-08:00",
       "view_count": 449
+    },
+    {
+      "handle": "@claireelise919",
+      "video_id": "7710373756794866957",
+      "url": "https://www.tiktok.com/@claireelise919/video/7710373756794866957",
+      "noted_at": "2026-11-20",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "How did my house get this messy clean-with-me; caption tags @Loaded Laundry; white Loaded Brazilian Passion bottle (50 Loads) held up at the washer then poured into a cap ~0:09-0:10",
+      "rule": "default",
+      "posted_at": "2026-11-20",
+      "posted_at_iso": "2026-11-20T13:48:04-08:00",
+      "view_count": 444
     }
   ],
   "historical_pre_baseline": [
@@ -1230,8 +1243,10 @@
     }
   },
   "last_check": {
-    "at": "2026-11-20T09:00:11-08:00",
-    "label": "Nov 20, 9:00am PT"
+    "at": "2026-11-20T16:55:31-08:00",
+    "label": "Nov 20, 4:55pm PT"
   },
-  "last_check_new_ids": 0
+  "last_check_new_ids": [
+    "7710373756794866957"
+  ]
 }
