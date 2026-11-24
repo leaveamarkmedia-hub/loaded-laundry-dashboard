@@ -1037,6 +1037,19 @@
       "posted_at": "2026-11-20",
       "posted_at_iso": "2026-11-20T13:48:04-08:00",
       "view_count": 444
+    },
+    {
+      "handle": "@amberjordannn",
+      "video_id": "7711446571346365726",
+      "url": "https://www.tiktok.com/@amberjordannn/video/7711446571346365726",
+      "noted_at": "2026-11-23",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "Sunday reset before Christmas decor clean-with-me; caption tags @Loaded Laundry; white Loaded Sahara Sandalwood bottle (50 Loads) held up at the washer then poured into a cap ~0:13-0:14",
+      "rule": "default",
+      "posted_at": "2026-11-23",
+      "posted_at_iso": "2026-11-23T11:11:08-08:00",
+      "view_count": 8043
     }
   ],
   "historical_pre_baseline": [
@@ -1243,8 +1256,10 @@
     }
   },
   "last_check": {
-    "at": "2026-11-23T08:49:13-08:00",
-    "label": "Nov 23, 8:49am PT"
+    "at": "2026-11-23T16:55:42-08:00",
+    "label": "Nov 23, 4:55pm PT"
   },
-  "last_check_new_ids": 0
+  "last_check_new_ids": [
+    "7711446571346365726"
+  ]
 }
