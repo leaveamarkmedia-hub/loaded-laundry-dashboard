@@ -1050,6 +1050,19 @@
       "posted_at": "2026-11-23",
       "posted_at_iso": "2026-11-23T11:11:08-08:00",
       "view_count": 8043
+    },
+    {
+      "handle": "@claireelise919",
+      "video_id": "7711904368265645326",
+      "url": "https://www.tiktok.com/@claireelise919/video/7711904368265645326",
+      "noted_at": "2026-11-25",
+      "source": "scheduled_check",
+      "confidence": "yes",
+      "note": "House reset clean-with-me in honor of the DWTS finale; caption tags @Loaded Laundry; white Loaded Brazilian Passion bottle (50 Loads) held up at the washer then poured into a cap ~0:30-0:31",
+      "rule": "default",
+      "posted_at": "2026-11-24",
+      "posted_at_iso": "2026-11-24T16:47:37-08:00",
+      "view_count": 12000
     }
   ],
   "historical_pre_baseline": [
@@ -1256,8 +1269,10 @@
     }
   },
   "last_check": {
-    "at": "2026-11-24T16:48:21-08:00",
-    "label": "Nov 24, 4:48pm PT"
+    "at": "2026-11-25T08:59:36-08:00",
+    "label": "Nov 25, 8:59am PT"
   },
-  "last_check_new_ids": 0
+  "last_check_new_ids": [
+    "7711904368265645326"
+  ]
 }
